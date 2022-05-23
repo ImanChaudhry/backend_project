@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Table(name = "joint_accounts")
 public class JointAccount extends BasicAccount{
 
-    @ManyToMany(mappedBy = "accounts")
+    @ManyToMany//(mappedBy = "accounts")
     @JoinTable(
             name = "joint_id",
             joinColumns = {@JoinColumn(name = "joint_account_id", nullable = true)},

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="basic_aacounts")
+@Table(name="basic_accounts")
 public class BasicAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class BasicAccount {
     @Column(name = "account_number", length = 8)
     private String accountNumber;
 
-    @OneToMany(mappedBy = "basicAccount")
+    @OneToMany//(mappedBy = "basicAccount")
     @JoinColumn(name = "payment_id")
     @JsonIgnoreProperties(value = "basicAccount")
     private List<Payment> payments;
@@ -39,7 +39,7 @@ public class BasicAccount {
     @ManyToOne
     private AccountHolder accountHolder;
 
-    @OneToMany(mappedBy = "basicAccount")
+    @OneToMany//(mappedBy = "basicAccount")
     @JoinColumn(name = "subscription_id")
     private List<Subscription> subscriptions;
 
