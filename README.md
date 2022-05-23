@@ -1,5 +1,5 @@
 # Backend Project
-BNTA Week 7 Project - Backend
+BNTA Week 7 Project
 
 List of Collaborators
 - Iman Chaudhry
