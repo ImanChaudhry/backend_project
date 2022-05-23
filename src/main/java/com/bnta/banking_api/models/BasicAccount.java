@@ -23,6 +23,7 @@ public class BasicAccount {
     private String accountNumber;
 
     @OneToMany(mappedBy = "basicAccount")
+    @JoinColumn(name = "payment_id")
     @JsonIgnoreProperties(value = "basicAccount")
     private List<Payment> payments;
 
@@ -39,6 +40,7 @@ public class BasicAccount {
     private AccountHolder accountHolder;
 
     @OneToMany(mappedBy = "basicAccount")
+    @JoinColumn(name = "subscription_id")
     private List<Subscription> subscriptions;
 
 
@@ -55,9 +57,97 @@ public class BasicAccount {
 
     public BasicAccount(){}
 
-    
+    public Long getId() {
+        return id;
+    }
+
+    public boolean isDebit() {
+        return isDebit;
+    }
+
+    public float getBalance() {
+        return balance;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public List<Payment> getPayments() {
+        return payments;
+    }
+
+    public String getExpirationDate() {
+        return expirationDate;
+    }
+
+    public String getCvc() {
+        return cvc;
+    }
+
+    public String getPinNumber() {
+        return pinNumber;
+    }
+
+    public AccountHolder getAccountHolder() {
+        return accountHolder;
+    }
+
+    public List<Subscription> getSubscriptions() {
+        return subscriptions;
+    }
+
+    public void setDebit(boolean debit) {
+        isDebit = debit;
+    }
+
+    public void setBalance(float balance) {
+        this.balance = balance;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public void setPayments(List<Payment> payments) {
+        this.payments = payments;
+    }
+
+    public void setExpirationDate(String expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
+    public void setCvc(String cvc) {
+        this.cvc = cvc;
+    }
+
+    public void setPinNumber(String pinNumber) {
+        this.pinNumber = pinNumber;
+    }
+
+    public void setAccountHolder(AccountHolder accountHolder) {
+        this.accountHolder = accountHolder;
+    }
+
+    public void setSubscriptions(List<Subscription> subscriptions) {
+        this.subscriptions = subscriptions;
+    }
 
 
+    // add and remove payments and subscriptions
+    public void addPayment(Payment payment){
+        this.payments.add(payment);
+    }
 
+    public void removePayment(Payment payment){
+        this.payments.remove(payment);
+    }
 
+    public void addSubscription(Subscription subscription){
+        this.subscriptions.add(subscription);
+    }
+
+    public void removeSubscription(Subscription subscription){
+        this.subscriptions.remove(subscription);
+    }
 }
