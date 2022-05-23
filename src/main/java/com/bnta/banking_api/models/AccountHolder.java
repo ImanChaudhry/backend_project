@@ -72,5 +72,12 @@ public class AccountHolder {
         this.accounts = accounts;
     }
 
+//    public void addAccounts(BasicAccount account){
+//        this.accounts.add(account);
+//    }
+//
+//    public void removeAccount(BasicAccount account){
+//        this.accounts.remove(account);
+//    }
 
 }
