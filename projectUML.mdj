@@ -1,0 +1,25 @@
+{
+	"_type": "Project",
+	"_id": "AAAAAAFF+h6SjaM2Hec=",
+	"name": "Untitled",
+	"ownedElements": [
+		{
+			"_type": "UMLModel",
+			"_id": "AAAAAAGA8LUE0Irnwmc=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Model1",
+			"ownedElements": [
+				{
+					"_type": "UMLClassDiagram",
+					"_id": "AAAAAAGA8LUE0IroM2w=",
+					"_parent": {
+						"$ref": "AAAAAAGA8LUE0Irnwmc="
+					},
+					"name": "ClassDiagram"
+				}
+			]
+		}
+	]
+}
