@@ -3,8 +3,8 @@ package com.bnta.banking_api.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
-import java.util.ArrayList;
+import java.time.LocalDate;
+
 
 @Entity
 @Table(name = "payments")
@@ -19,7 +19,7 @@ public class Payment {
     private String name;
 
     @Column
-    private Timestamp date;
+    private LocalDate date;
 
     @Column
     private Float amount;
@@ -27,15 +27,13 @@ public class Payment {
     @ManyToOne
     @JoinColumn(name = "account_id")
     @JsonIgnoreProperties(value = "payments")
+    private BasicAccount basicAccount;
 
-    private List<BasicAccount> basicAccount;
-
-    public Payment(String name, Timestamp date, Float amount) {
+    public Payment(String name, LocalDate date, Float amount, BasicAccount basicAccount) {
         this.name = name;
         this.date = date;
         this.amount = amount;
         this.basicAccount = basicAccount;
-        this.basicAccount = new ArrayList<BasicAccount>();
     }
 
     protected Payment() {}
@@ -52,11 +50,11 @@ public class Payment {
         this.name = name;
     }
 
-    public Timestamp getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Timestamp date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -68,11 +66,11 @@ public class Payment {
         this.amount = amount;
     }
 
-    public List<BasicAccount> getBasicAccount() {
+    public BasicAccount getBasicAccount() {
         return basicAccount;
     }
 
-    public void setBasicAccount(List<BasicAccount> basicAccount) {
+    public void setBasicAccount(BasicAccount basicAccount) {
         this.basicAccount = basicAccount;
     }
 }
