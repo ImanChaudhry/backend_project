@@ -1,24 +1,36 @@
 package com.bnta.banking_api.models;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+@Entity
+@Table(name = "account_holders")
 public class AccountHolder {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
     private String name;
 
+    @Column
     private LocalDate dob;
 
+    @Column
     private String address;
 
+    @Column
     private String employment_status;
 
+    @OneToMany(mappedBy = "accountHolder")
     private List<BasicAccount> accounts;
 
+//    DEFAULT CONSTRUCTOR
     public AccountHolder(){}
 
+//    CONSTRUCTOR
     public AccountHolder(Long id, String name, LocalDate dob, String address, String employment_status, List<BasicAccount> accounts) {
         this.id = id;
         this.name = name;
