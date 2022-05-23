@@ -24,6 +24,9 @@ public class Payment {
     @Column
     private Float amount;
 
+    @Column
+    private Category category;
+
     @ManyToOne
     @JoinColumn(name = "account_id")
     @JsonIgnoreProperties(value = "payments")
