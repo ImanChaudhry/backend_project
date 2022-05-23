@@ -22,16 +22,16 @@ public class AccountHolder {
     private String address;
 
     @Column
-    private String employment_status;
+    private Employment employment_status;
 
     @OneToMany(mappedBy = "accountHolder")
     private List<BasicAccount> accounts;
 
 //    DEFAULT CONSTRUCTOR
-    public AccountHolder(){}
+    protected AccountHolder(){}
 
 //    CONSTRUCTOR
-    public AccountHolder(Long id, String name, LocalDate dob, String address, String employment_status, List<BasicAccount> accounts) {
+    public AccountHolder(Long id, String name, LocalDate dob, String address, Employment employment_status) {
         this.id = id;
         this.name = name;
         this.dob = dob;
@@ -68,11 +68,11 @@ public class AccountHolder {
         this.address = address;
     }
 
-    public String getEmployment_status() {
+    public Employment getEmployment_status() {
         return employment_status;
     }
 
-    public void setEmployment_status(String employment_status) {
+    public void setEmployment_status(Employment employment_status) {
         this.employment_status = employment_status;
     }
 
@@ -84,12 +84,12 @@ public class AccountHolder {
         this.accounts = accounts;
     }
 
-//    public void addAccounts(BasicAccount account){
-//        this.accounts.add(account);
-//    }
-//
-//    public void removeAccount(BasicAccount account){
-//        this.accounts.remove(account);
-//    }
+    public void addAccounts(BasicAccount account){
+        this.accounts.add(account);
+    }
+
+    public void removeAccount(BasicAccount account){
+        this.accounts.remove(account);
+    }
 
 }
