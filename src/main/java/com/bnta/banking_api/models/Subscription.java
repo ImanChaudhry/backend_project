@@ -36,7 +36,7 @@ public class Subscription {
 //    @JsonIgnoreProperties({""})
 
 
-// Empty Constructor
+// Empty/Default Constructor
 
     protected Subscription() {
     }
