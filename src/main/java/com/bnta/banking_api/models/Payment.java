@@ -75,7 +75,15 @@ public class Payment {
         return account;
     }
 
-    public void setBasicAccount(Account account) {
+    public void setAccount(Account account) {
         this.account = account;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
