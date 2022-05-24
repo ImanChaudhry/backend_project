@@ -7,5 +7,7 @@ import java.util.List;
 
 public interface BasicAccountRepository extends JpaRepository<BasicAccount, Long> {
 
+    List<BasicAccount> findBasicAccountByPinNumberAndBalance(String pinNumber, double balance);
+
 
 }

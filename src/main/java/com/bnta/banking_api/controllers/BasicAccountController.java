@@ -28,19 +28,20 @@ public class BasicAccountController {
     SubscriptionRepository subscriptionRepository;
 
 //    INDEX
-    @GetMapping
-    public ResponseEntity<List<BasicAccount>> getBasicAccounts(){
-        return new ResponseEntity<>(basicAccountRepository.findAll(), HttpStatus.OK);
-    }
 //    @GetMapping
-//    public ResponseEntity<List<BasicAccount>> getBasicAccountsAndFilter(
-//            @RequestParam(required = false, name = "pinnumber") String pinNumber,
-//            @RequestParam(required = false, name = "balance") double balance){
-//        if (pinNumber != null){
-//            return new ResponseEntity<>(basicAccountRepository.findBasicAccountByPinNumber(pinNumber), HttpStatus.OK);
-//        }
+//    public ResponseEntity<List<BasicAccount>> getBasicAccounts(){
 //        return new ResponseEntity<>(basicAccountRepository.findAll(), HttpStatus.OK);
 //    }
+    @GetMapping
+    public ResponseEntity<List<BasicAccount>> getBasicAccountsAndFilter(
+            @RequestParam(required = false, name = "pinnumber") String pinNumber,
+            @RequestParam(required = false, name = "balance") double balance){
+        if (pinNumber != null && balance != 0){
+            return new ResponseEntity<>(basicAccountRepository.findBasicAccountByPinNumberAndBalance(pinNumber, balance), HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(basicAccountRepository.findAll(), HttpStatus.OK);
+    }
 
 //    SHOW
     @GetMapping(value = "/{id}")
