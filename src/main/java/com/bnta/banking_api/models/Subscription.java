@@ -33,7 +33,7 @@ public class Subscription {
 
     @ManyToOne
     @JoinColumn(name = "basic_accounts_id")
-    private BasicAccount basicAccount;
+    private Account account;
 //    @JsonIgnoreProperties({""})
 
 
@@ -44,13 +44,13 @@ public class Subscription {
 
 // Constructors
 
-    public Subscription(String name, LocalDate date_of_payment, String category, Float price, Boolean is_active, BasicAccount basicAccount) {
+    public Subscription(String name, LocalDate date_of_payment, String category, Float price, Boolean is_active, Account account) {
         this.name = name;
         this.date_of_payment = date_of_payment;
         this.category = category;
         this.price = price;
         this.is_active = is_active;
-        this.basicAccount = basicAccount;
+        this.account = account;
     }
 
 
@@ -101,12 +101,12 @@ public class Subscription {
         this.is_active = is_active;
     }
 
-    public BasicAccount getBasicAccount() {
-        return basicAccount;
+    public Account getAccount() {
+        return account;
     }
 
-    public void setBasicAccount(BasicAccount basicAccount) {
-        this.basicAccount = basicAccount;
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
 }
