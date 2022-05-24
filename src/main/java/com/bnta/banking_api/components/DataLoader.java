@@ -57,11 +57,13 @@ public class DataLoader implements ApplicationRunner {
         AccountHolder accountHolder17 = new AccountHolder("Kale Wills", LocalDate.of(2004, 9, 9), "Hill Road, Manchester", Employment.STUDENT);
         AccountHolder accountHolder18 = new AccountHolder("Ander Boss", LocalDate.of(1992, 12, 29), "Cary Street, London", Employment.FULL_TIME);
         AccountHolder accountHolder19 = new AccountHolder("Billie Ele", LocalDate.of(1991, 5, 26), "Park Street, Manchester", Employment.FULL_TIME);
-        AccountHolder accountHolder20 = new AccountHolder("Mani Dan", LocalDate.of(1977, 10, 4), "Park Road, London", Employment.OTHER);
+        AccountHolder accountHolder20 = new AccountHolder("Matty Dan", LocalDate.of(1977, 10, 4), "Park Road, London", Employment.OTHER);
 
         accountHolderRepository.saveAll(Arrays.asList(accountHolder1, accountHolder2, accountHolder3, accountHolder4, accountHolder5, accountHolder6, accountHolder7, accountHolder8, accountHolder9,
                 accountHolder10, accountHolder11, accountHolder12, accountHolder13, accountHolder14, accountHolder15, accountHolder16, accountHolder17,
                 accountHolder18, accountHolder19, accountHolder20));
+
+
 
 
 
