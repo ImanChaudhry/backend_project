@@ -34,6 +34,7 @@ public class Subscription {
 
     @ManyToOne
     @JoinColumn(name = "account_id")
+    @JsonIgnoreProperties("subscriptions")
     private Account account;
 //    @JsonIgnoreProperties({""})
 
