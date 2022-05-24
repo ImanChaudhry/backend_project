@@ -5,19 +5,29 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "joint_accounts")
-public class JointAccount extends BasicAccount{
+public class JointAccount extends Account{
+
+    @Column
+    private String relationship;
 
     @ManyToMany//(mappedBy = "accounts")
     @JoinTable(
-            name = "joint_id",
+            name = "jointAccount_accountHolder",
             joinColumns = {@JoinColumn(name = "joint_account_id", nullable = true)},
             inverseJoinColumns = {@JoinColumn(name = "account_holder_id", nullable = true)}
     )
     private List<AccountHolder> accountHolders;
 
+    public JointAccount(boolean isDebit, float balance, String accountNumber,
+                        String expirationDate, String cvc, String pinNumber, String relationship, List<AccountHolder> accountHolders) {
 
-    public JointAccount(List<AccountHolder> accountHolders) {
+        super(isDebit, balance, accountNumber, expirationDate, cvc, pinNumber);
+        this.relationship = relationship;
         this.accountHolders = accountHolders;
+    }
+
+    public JointAccount() {
+        super();
     }
 
     public List<AccountHolder> getAccountHolders() {
