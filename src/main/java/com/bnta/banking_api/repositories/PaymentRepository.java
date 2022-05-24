@@ -15,6 +15,8 @@ public interface PaymentRepository extends JpaRepository<Payment, Long> {
 
     List<Payment> findPaymentsByCategory(Category category);
 
+    List<Payment> findPaymentsByAmountGreaterThan(double amount);
+
 
 
 }

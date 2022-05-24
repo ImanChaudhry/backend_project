@@ -61,6 +61,14 @@ public class PaymentController {
         return new ResponseEntity<>(paymentRepository.findPaymentsByCategory(Category.valueOf(c)), HttpStatus.FOUND);
     }
 
+    // SHOW : search payments that are greater than
+    @GetMapping("/greaterthan={amount}")
+    public ResponseEntity<List<Payment>> seearchPaymentGreaterThan(@PathVariable double amount){
+
+        var found = paymentRepository.findPaymentsByAmountGreaterThan(amount);
+        return new ResponseEntity<>(found, found.isEmpty() ? HttpStatus.NOT_FOUND: HttpStatus.FOUND);
+    }
+
     // Create
     @PostMapping
     public ResponseEntity<Payment> createNewPayment(@RequestBody Payment payment){
