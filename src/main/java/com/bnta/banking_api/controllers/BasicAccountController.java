@@ -72,8 +72,6 @@ public class BasicAccountController {
             bAcc.setSubscriptions(new ArrayList<>());
 //            System.out.println(bAcc.getPayments().size());
             basicAccountRepository.deleteById(id);
-
-
         }
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
