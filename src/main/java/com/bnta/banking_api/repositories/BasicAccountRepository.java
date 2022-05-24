@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface BasicAccountRepository extends JpaRepository<BasicAccount, Long> {
-    List<BasicAccount> findBasicAccountByPinNumber(String pinNumber);
+
 
 }
