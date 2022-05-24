@@ -12,6 +12,8 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     private BasicAccountRepository basicAccountRepository;
 
+
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
