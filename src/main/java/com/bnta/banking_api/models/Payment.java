@@ -30,13 +30,13 @@ public class Payment {
     @ManyToOne
     @JoinColumn(name = "account_id")
     @JsonIgnoreProperties(value = "payments")
-    private BasicAccount basicAccount;
+    private Account account;
 
-    public Payment(String name, LocalDate date, Float amount, BasicAccount basicAccount) {
+    public Payment(String name, LocalDate date, Float amount, Account account) {
         this.name = name;
         this.date = date;
         this.amount = amount;
-        this.basicAccount = basicAccount;
+        this.account = account;
     }
 
     protected Payment() {}
@@ -69,11 +69,11 @@ public class Payment {
         this.amount = amount;
     }
 
-    public BasicAccount getBasicAccount() {
-        return basicAccount;
+    public Account getAccount() {
+        return account;
     }
 
-    public void setBasicAccount(BasicAccount basicAccount) {
-        this.basicAccount = basicAccount;
+    public void setBasicAccount(Account account) {
+        this.account = account;
     }
 }
