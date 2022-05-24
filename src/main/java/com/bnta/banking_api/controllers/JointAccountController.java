@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping
+@RequestMapping("joint_accounts")
 public class JointAccountController {
 
     @Autowired

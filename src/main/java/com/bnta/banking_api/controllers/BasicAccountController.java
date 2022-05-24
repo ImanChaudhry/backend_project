@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,6 +38,10 @@ public class BasicAccountController {
     public ResponseEntity<Optional<BasicAccount>> getBasicAccount(@PathVariable Long id){
         return new ResponseEntity<>(basicAccountRepository.findById(id), HttpStatus.OK);
     }
+//    @GetMapping(value = "/{pinnumber}")//localhost:8080/basic_accounts?pinnumber=1548
+//    public ResponseEntity<Optional<BasicAccount>> getBasicAccount(@PathVariable Long pinNumber){
+//        return new ResponseEntity<>(basicAccountRepository.findById(pinNumber), HttpStatus.OK);
+//    }
 
 //    CREATE/POST
     @PostMapping
@@ -46,20 +51,25 @@ public class BasicAccountController {
     }
 
 //    DELETE
+//    @DeleteMapping(value = "/{id}")
+//    public ResponseEntity<Long> removeBasicAccount(@PathVariable("id") Long id){
+//        Optional<BasicAccount> name = basicAccountRepository.findById(id);
+//        if (name.isPresent()){
+//            BasicAccount bAcc = name.get();
+//            bAcc.setPayments(new ArrayList<>());
+//        }
+//        basicAccountRepository.deleteById(id);
+//        return new ResponseEntity<>(id, HttpStatus.OK);
+//    }
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Long> removeBasicAccount(@PathVariable("id") Long id){
         basicAccountRepository.deleteById(id);
+        for (int i = 0; i <= basicAccountRepository.count(); i++){
+            if (id == null){
+                return new ResponseEntity<>(null);
+            }
+        }
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
-//    @DeleteMapping(value = "/{id}")
-//    public ResponseEntity<Long> removeBasicAccount(@PathVariable("id") Long id){
-//        basicAccountRepository.deleteById(id);
-//        for (int i = 0; i <= basicAccountRepository.count(); i++){
-//            if (id == null){
-//                return new ResponseEntity<>(null);
-//            }
-//        }
-//        return new ResponseEntity<>(id, HttpStatus.OK);
-//    }
 
 }

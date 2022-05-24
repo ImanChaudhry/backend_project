@@ -43,6 +43,7 @@ public abstract class Account {
 
 
     @OneToMany(mappedBy = "account")
+    @JsonIgnoreProperties("account")
     private List<Subscription> subscriptions;
 
     public Account(boolean isDebit, double balance, String pinNumber) {

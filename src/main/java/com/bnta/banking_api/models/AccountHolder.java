@@ -1,5 +1,7 @@
 package com.bnta.banking_api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -27,6 +29,7 @@ public class AccountHolder {
     private Employment employment_status;
 
     @OneToMany(mappedBy = "accountHolder")
+    @JsonIgnoreProperties("accountHolder")
     private List<BasicAccount> accounts;
 
 //    DEFAULT CONSTRUCTOR
