@@ -43,6 +43,7 @@ public class DataLoader implements ApplicationRunner {
         BasicAccount basicAccount8 = new BasicAccount(true, 69857,1658,accountHolder8);
         BasicAccount basicAccount9 = new BasicAccount(false, 958,5448,accountHolder9);
         BasicAccount basicAccount10 = new BasicAccount(true, 46581,9658,accountHolder10);
+        basicAccountRepository.saveAll(Arrays.asList(basicAccount1,basicAccount2,basicAccount3,basicAccount4,basicAccount5,basicAccount6,basicAccount7,basicAccount8,basicAccount9,basicAccount10))
 
         //JointAccount Data
         JointAccount jointAccount1 = new JointAccount(true, 124569,1649, "Partner", Arrays.asList(accountHolder1, accountHolder2));
@@ -55,6 +56,7 @@ public class DataLoader implements ApplicationRunner {
         JointAccount jointAccount8 = new JointAccount(true, 586212,9467, "Partner", Arrays.asList(accountHolder14, accountHolder20));
         JointAccount jointAccount9 = new JointAccount(false, 987524,3619, "Partner", Arrays.asList(accountHolder4, accountHolder3));
         JointAccount jointAccount10 = new JointAccount(false, 87794,7892, "Parent", Arrays.asList(accountHolder14, accountHolder16));
+        jointAccountRepository.saveAll(Arrays.asList(jointAccount1,jointAccount2,jointAccount3,jointAccount4,jointAccount5,jointAccount6,jointAccount7,jointAccount8,jointAccount9,jointAccount10))
 
 
 
