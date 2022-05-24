@@ -18,15 +18,15 @@ public class JointAccount extends Account{
     )
     private List<AccountHolder> accountHolders;
 
-    public JointAccount(boolean isDebit, float balance, String accountNumber,
-                        String expirationDate, String cvc, String pinNumber, String relationship, List<AccountHolder> accountHolders) {
+    public JointAccount(boolean isDebit, float balance, String pinNumber,
+                        String relationship, List<AccountHolder> accountHolders) {
 
-        super(isDebit, balance, accountNumber, expirationDate, cvc, pinNumber);
+        super(isDebit, balance, pinNumber);
         this.relationship = relationship;
         this.accountHolders = accountHolders;
     }
 
-    public JointAccount() {
+    protected JointAccount() {
         super();
     }
 

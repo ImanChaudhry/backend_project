@@ -1,10 +1,14 @@
 package com.bnta.banking_api.models;
 
+import com.bnta.banking_api.BankingApiApplication;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.boot.SpringApplication;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 @Entity
@@ -43,16 +47,41 @@ public abstract class Account {
     @JoinColumn(name = "subscription_id")
     private List<Subscription> subscriptions;
 
-    public Account(boolean isDebit, float balance, String accountNumber, String expirationDate, String cvc, String pinNumber) {
+    public Account(boolean isDebit, float balance, String pinNumber) {
         this.isDebit = isDebit;
         this.balance = balance;
+        this.accountNumber = generateAccountNumber();
         this.payments = new ArrayList<>();
-        this.expirationDate = expirationDate;
-        this.cvc = cvc;
+        this.expirationDate = generateExpirationDate();
+        this.cvc = generateCVC();
         this.pinNumber = pinNumber;
     }
 
-    public Account(){}
+    protected Account(){}
+
+
+    public String generateAccountNumber(){
+        Random rnd = new Random();
+        int number = rnd.nextInt(99999999);
+        return String.format("%08d", number);
+    }
+
+    public String generateCVC(){
+        Random rnd = new Random();
+        int number = rnd.nextInt(999);
+        return String.format("%03d", number);
+    }
+
+    public String generateExpirationDate(){
+        Random rnd = new Random();
+        int month = rnd.nextInt(13);
+        String month_s = String.format("%02d", month);
+        int year = rnd.nextInt(22,27);
+        String year_s = String.format("%02d", year);
+        return month_s + year_s;
+    }
+
+
 
     public Long getId() {
         return id;
@@ -141,6 +170,18 @@ public abstract class Account {
         this.subscriptions.remove(subscription);
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", isDebit=" + isDebit +
+                ", balance=" + balance +
+                ", accountNumber='" + accountNumber + '\'' +
+                ", payments=" + payments +
+                ", expirationDate='" + expirationDate + '\'' +
+                ", cvc='" + cvc + '\'' +
+                ", pinNumber='" + pinNumber + '\'' +
+                ", subscriptions=" + subscriptions +
+                '}';
+    }
 }

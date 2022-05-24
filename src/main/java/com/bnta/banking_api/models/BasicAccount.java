@@ -12,14 +12,13 @@ public class BasicAccount extends Account {
     @ManyToOne
     private AccountHolder accountHolder;
 
-    public BasicAccount(boolean isDebit, float balance, String accountNumber,
-                        String expirationDate, String cvc, String pinNumber, AccountHolder accountHolder) {
+    public BasicAccount(boolean isDebit, float balance, String pinNumber, AccountHolder accountHolder) {
 
-        super(isDebit, balance, accountNumber, expirationDate, cvc, pinNumber);
+        super(isDebit, balance, pinNumber);
         this.accountHolder = accountHolder;
     }
 
-    public BasicAccount(){
+    protected BasicAccount(){
         super();
     }
 
@@ -30,4 +29,5 @@ public class BasicAccount extends Account {
     public void setAccountHolder(AccountHolder accountHolder) {
         this.accountHolder = accountHolder;
     }
+
 }
