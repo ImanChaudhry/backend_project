@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class Subscription {
     private String name;
 
     @Column
-    private Timestamp date_of_payment;
+    private LocalDate date_of_payment;
 
     @Column
     private String category;
@@ -32,7 +33,7 @@ public class Subscription {
 
     @ManyToOne
     @JoinColumn(name = "basic_accounts_id")
-    private BasicAccount basicAccount;
+    private Account account;
 //    @JsonIgnoreProperties({""})
 
 
@@ -43,13 +44,13 @@ public class Subscription {
 
 // Constructors
 
-    public Subscription(String name, Timestamp date_of_payment, String category, Float price, Boolean is_active, BasicAccount basicAccount) {
+    public Subscription(String name, LocalDate date_of_payment, String category, Float price, Boolean is_active, Account account) {
         this.name = name;
         this.date_of_payment = date_of_payment;
         this.category = category;
         this.price = price;
         this.is_active = is_active;
-        this.basicAccount = basicAccount;
+        this.account = account;
     }
 
 
@@ -68,11 +69,11 @@ public class Subscription {
         this.name = name;
     }
 
-    public Timestamp getDate_of_payment() {
+    public LocalDate getDate_of_payment() {
         return date_of_payment;
     }
 
-    public void setDate_of_payment(Timestamp date_of_payment) {
+    public void setDate_of_payment(LocalDate date_of_payment) {
         this.date_of_payment = date_of_payment;
     }
 
@@ -100,12 +101,12 @@ public class Subscription {
         this.is_active = is_active;
     }
 
-    public BasicAccount getBasicAccount() {
-        return basicAccount;
+    public Account getAccount() {
+        return account;
     }
 
-    public void setBasicAccount(BasicAccount basicAccount) {
-        this.basicAccount = basicAccount;
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
 }
