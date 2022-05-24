@@ -81,8 +81,18 @@ public class PaymentController {
     // SHOW : search payments by account id
     @GetMapping("/search/account={id}")
     public ResponseEntity<List<Payment>> searchPaymentByAccountId(@PathVariable Long id){
-
+        var found = paymentRepository.findPaymentsByAccountId(id);
+        return new ResponseEntity<>(found, found.isEmpty() ? HttpStatus.NOT_FOUND : HttpStatus.FOUND);
     }
+
+    // SHOW : search payments by account holder name
+//    @GetMapping("/search/account_holder={name}")
+//    public ResponseEntity<List<Payment>> searchPaymentByAccountHolderName(@PathVariable String name){
+//        var found = paymentRepository.findPaymentsByAccountHolderName(name);
+//        return new ResponseEntity<>(found, HttpStatus.FOUND);
+//
+//    }
+
 
     // Create
     @PostMapping
