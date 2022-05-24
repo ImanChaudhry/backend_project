@@ -1,5 +1,7 @@
 package com.bnta.banking_api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -26,8 +28,9 @@ public class AccountHolder {
     @Enumerated(EnumType.STRING)
     private Employment employment_status;
 
-    @OneToMany(mappedBy = "accountHolder")
-    private List<BasicAccount> accounts;
+    @ManyToMany//(mappedBy = "accountHolder")
+    @JsonIgnoreProperties(value = "accountHolder")
+    private List<Account> accounts;
 
 //    DEFAULT CONSTRUCTOR
     protected AccountHolder(){}
@@ -77,19 +80,19 @@ public class AccountHolder {
         this.employment_status = employment_status;
     }
 
-    public List<BasicAccount> getAccounts() {
+    public List<Account> getAccounts() {
         return accounts;
     }
 
-    public void setAccounts(List<BasicAccount> accounts) {
+    public void setAccounts(List<Account> accounts) {
         this.accounts = accounts;
     }
 
-    public void addAccounts(BasicAccount account){
+    public void addAccounts(Account account){
         this.accounts.add(account);
     }
 
-    public void removeAccount(BasicAccount account){
+    public void removeAccount(Account account){
         this.accounts.remove(account);
     }
 

@@ -1,5 +1,7 @@
 package com.bnta.banking_api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.List;
 import javax.persistence.*;
 
@@ -16,6 +18,7 @@ public class JointAccount extends Account{
             joinColumns = {@JoinColumn(name = "joint_account_id", nullable = true)},
             inverseJoinColumns = {@JoinColumn(name = "account_holder_id", nullable = true)}
     )
+    @JsonIgnoreProperties(value = "account")
     private List<AccountHolder> accountHolders;
 
     public JointAccount(boolean isDebit, double balance, String pinNumber,

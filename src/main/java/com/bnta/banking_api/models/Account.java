@@ -2,6 +2,7 @@ package com.bnta.banking_api.models;
 
 import com.bnta.banking_api.BankingApiApplication;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.springframework.boot.SpringApplication;
 
 import javax.persistence.*;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
+@JsonDeserialize(as=BasicAccount.class)
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Account {
@@ -43,6 +44,7 @@ public abstract class Account {
 
 
     @OneToMany(mappedBy = "account")
+    @JsonIgnoreProperties(value = "account")
     private List<Subscription> subscriptions;
 
     public Account(boolean isDebit, double balance, String pinNumber) {
