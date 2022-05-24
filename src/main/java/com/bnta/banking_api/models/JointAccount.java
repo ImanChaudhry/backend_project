@@ -18,7 +18,7 @@ public class JointAccount extends Account{
     )
     private List<AccountHolder> accountHolders;
 
-    public JointAccount(boolean isDebit, float balance, String pinNumber,
+    public JointAccount(boolean isDebit, double balance, String pinNumber,
                         String relationship, List<AccountHolder> accountHolders) {
 
         super(isDebit, balance, pinNumber);

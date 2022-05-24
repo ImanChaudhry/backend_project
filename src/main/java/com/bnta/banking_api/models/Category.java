@@ -10,4 +10,5 @@ public enum Category {
     HEALTH,
     CHARITY,
     OTHER
+
 }

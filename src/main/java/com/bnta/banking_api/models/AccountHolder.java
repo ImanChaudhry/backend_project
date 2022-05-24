@@ -23,6 +23,7 @@ public class AccountHolder {
     private String address;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private Employment employment_status;
 
     @OneToMany(mappedBy = "accountHolder")

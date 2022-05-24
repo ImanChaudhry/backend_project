@@ -12,7 +12,7 @@ public class BasicAccount extends Account {
     @ManyToOne
     private AccountHolder accountHolder;
 
-    public BasicAccount(boolean isDebit, float balance, String pinNumber, AccountHolder accountHolder) {
+    public BasicAccount(boolean isDebit, double balance, String pinNumber, AccountHolder accountHolder) {
 
         super(isDebit, balance, pinNumber);
         this.accountHolder = accountHolder;

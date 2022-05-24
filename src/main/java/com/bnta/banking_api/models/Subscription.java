@@ -23,16 +23,17 @@ public class Subscription {
     private LocalDate date_of_payment;
 
     @Column
-    private String category;
+    @Enumerated(EnumType.STRING)
+    private Category category;
 
     @Column
-    private Float price;
+    private double price;
 
     @Column
     private Boolean is_active;
 
     @ManyToOne
-    @JoinColumn(name = "basic_accounts_id")
+    @JoinColumn(name = "account_id")
     private Account account;
 //    @JsonIgnoreProperties({""})
 
@@ -44,7 +45,7 @@ public class Subscription {
 
 // Constructors
 
-    public Subscription(String name, LocalDate date_of_payment, String category, Float price, Boolean is_active, Account account) {
+    public Subscription(String name, LocalDate date_of_payment, Category category, double price, Boolean is_active, Account account) {
         this.name = name;
         this.date_of_payment = date_of_payment;
         this.category = category;
@@ -77,19 +78,19 @@ public class Subscription {
         this.date_of_payment = date_of_payment;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
-    public Float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

@@ -22,9 +22,10 @@ public class Payment {
     private LocalDate date;
 
     @Column
-    private Float amount;
+    private double amount;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private Category category;
 
     @ManyToOne
@@ -32,11 +33,12 @@ public class Payment {
     @JsonIgnoreProperties(value = "payments")
     private Account account;
 
-    public Payment(String name, LocalDate date, Float amount, Account account) {
+    public Payment(String name, LocalDate date, double amount, Account account, Category category) {
         this.name = name;
         this.date = date;
         this.amount = amount;
         this.account = account;
+        this.category = category;
     }
 
     protected Payment() {}
@@ -61,11 +63,11 @@ public class Payment {
         this.date = date;
     }
 
-    public Float getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(Float amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 

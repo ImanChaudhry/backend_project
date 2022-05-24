@@ -23,14 +23,13 @@ public abstract class Account {
     private boolean isDebit;
 
     @Column(name = "balance")
-    private float balance;
+    private double balance;
 
     @Column(name = "account_number", length = 8)
     private String accountNumber;
 
-    @OneToMany//(mappedBy = "basicAccount")
-    @JoinColumn(name = "payment_id")
-    @JsonIgnoreProperties(value = "basicAccount")
+    @OneToMany(mappedBy = "account")
+    @JsonIgnoreProperties(value = "account")
     private List<Payment> payments;
 
     @Column(name = "expiration_date", length = 4)
@@ -43,11 +42,10 @@ public abstract class Account {
     private String pinNumber;
 
 
-    @OneToMany//(mappedBy = "basicAccount")
-    @JoinColumn(name = "subscription_id")
+    @OneToMany(mappedBy = "account")
     private List<Subscription> subscriptions;
 
-    public Account(boolean isDebit, float balance, String pinNumber) {
+    public Account(boolean isDebit, double balance, String pinNumber) {
         this.isDebit = isDebit;
         this.balance = balance;
         this.accountNumber = generateAccountNumber();
@@ -91,7 +89,7 @@ public abstract class Account {
         return isDebit;
     }
 
-    public float getBalance() {
+    public double getBalance() {
         return balance;
     }
 
@@ -123,7 +121,7 @@ public abstract class Account {
         isDebit = debit;
     }
 
-    public void setBalance(float balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
