@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,9 +61,22 @@ public class JointAccountController {
     }
 
 //    DELETE
+//    @DeleteMapping(value = "/{id}")
+//    public ResponseEntity<Long> removeJointAccount(@PathVariable("id") Long id){
+//        jointAccountRepository.deleteById(id);
+//        return new ResponseEntity<>(id, HttpStatus.OK);
+//    }
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Long> removeJointAccount(@PathVariable("id") Long id){
-        jointAccountRepository.deleteById(id);
+        Optional<JointAccount> ja = jointAccountRepository.findById(id);
+        if (ja.isPresent()){
+            JointAccount jAcc = ja.get();
+            jAcc.getPayments().stream().forEach(payment -> paymentRepository.deleteById(payment.getId()));
+            jAcc.getSubscriptions().stream().forEach(subscription -> subscriptionRepository.deleteById(subscription.getId()));
+            jAcc.setPayments(new ArrayList<>());
+            jAcc.setSubscriptions(new ArrayList<>());
+            jointAccountRepository.deleteById(id);
+        }
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
