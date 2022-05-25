@@ -74,7 +74,7 @@ public class Subscription {
         return dateOfPayment;
     }
 
-    public void setDate_of_payment(LocalDate date_of_payment) {
+    public void setDate_of_payment(LocalDate dateOfPayment) {
         this.dateOfPayment = dateOfPayment;
     }
 
@@ -98,7 +98,7 @@ public class Subscription {
         return isActive;
     }
 
-    public void setIs_active(Boolean is_active) {
+    public void setIs_active(Boolean isActive) {
         this.isActive = isActive;
     }
 

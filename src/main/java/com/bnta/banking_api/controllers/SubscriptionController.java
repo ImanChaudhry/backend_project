@@ -48,14 +48,14 @@ public class SubscriptionController {
     @GetMapping("/isActive={isActive}") //localhost:8080/subscriptions/isActive=true
     public ResponseEntity<List<Subscription>> getAllActiveSubscriptions(
             @PathVariable boolean isActive) {
-        return new ResponseEntity<>(subscriptionRepository.findByIsActive(isActive), HttpStatus.OK);
+        return new ResponseEntity<>(subscriptionRepository.findByIsActiveEquals(isActive), HttpStatus.OK);
     }
 
     //findByDateOfPaymentEquals
     @GetMapping("/dateofpayment") //localhost:8080/subscriptions/dateofpayment?dateofpayment=2017-11-23
     public ResponseEntity<List<Subscription>> getAllSubscriptionsOfDateOfPayment(
             @RequestParam (name = "dateofpayment") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateOfPayment){
-        return new ResponseEntity<>(subscriptionRepository.findByDateOfPayment(dateOfPayment), HttpStatus.OK);
+        return new ResponseEntity<>(subscriptionRepository.findByDateOfPaymentEquals(dateOfPayment), HttpStatus.OK);
     }
 
     @PostMapping
