@@ -7,7 +7,9 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
 @Entity(name="basic_accounts")
+//public class BasicAccount extends Account {
 public class BasicAccount extends Account {
 
     @ManyToOne
@@ -33,3 +35,5 @@ public class BasicAccount extends Account {
     }
 
 }
+
+ */
