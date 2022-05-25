@@ -41,12 +41,11 @@ public class Subscription {
 
 // Empty/Default Constructor
 
-    protected Subscription() {
-    }
+    protected Subscription() {}
 
 // Constructors
 
-    public Subscription(String name, LocalDate date_of_payment, Category category, double price, Boolean is_active, Account account) {
+    public Subscription(String name, LocalDate dateOfPayment, Category category, double price, Boolean is_active, Account account) {
         this.name = name;
         this.date_of_payment = date_of_payment;
         this.category = category;

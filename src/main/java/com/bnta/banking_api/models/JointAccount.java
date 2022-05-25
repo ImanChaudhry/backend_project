@@ -1,5 +1,5 @@
 package com.bnta.banking_api.models;
-
+/*
 import java.util.List;
 import javax.persistence.*;
 
@@ -47,3 +47,4 @@ public class JointAccount extends Account{
         this.accountHolders.remove(accountHolder);
     }
 }
+*/
