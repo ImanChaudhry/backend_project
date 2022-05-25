@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Locale;
@@ -20,7 +21,7 @@ import java.util.Optional;
 @RequestMapping("payments")
 public class PaymentController {
 
-    @Autowired
+    @Resource
     private PaymentRepository paymentRepository;
 
 
@@ -86,12 +87,12 @@ public class PaymentController {
     }
 
     // SHOW : search payments by account holder name
-//    @GetMapping("/search/account_holder={name}")
-//    public ResponseEntity<List<Payment>> searchPaymentByAccountHolderName(@PathVariable String name){
-//        var found = paymentRepository.findPaymentsByAccountHolderName(name);
-//        return new ResponseEntity<>(found, HttpStatus.FOUND);
-//
-//    }
+    @GetMapping("/search/account_holder={name}")
+    public ResponseEntity<List<Payment>> searchPaymentByAccountHolderName(@PathVariable String name){
+        var found = paymentRepository.findPaymentsByAccountHolderName(name);
+        return new ResponseEntity<>(found, HttpStatus.FOUND);
+
+    }
 
     // Create
     @PostMapping
@@ -111,6 +112,7 @@ public class PaymentController {
         }
         return new ResponseEntity<>(found, found.isPresent() ? HttpStatus.NOT_FOUND : HttpStatus.ACCEPTED);
     }
+
 
     // DELETE : delete payment by id
     @DeleteMapping("/delete-{id}")
@@ -139,6 +141,7 @@ public class PaymentController {
             List<Payment> payments2 = paymentRepository.findPaymentsByDateEquals(date);
             paymentRepository.deleteAll(payments2);
         }
+
     }
 
 
