@@ -3,6 +3,7 @@ package com.bnta.banking_api.controllers;
 
 import com.bnta.banking_api.models.Account;
 import com.bnta.banking_api.models.AccountHolder;
+import com.bnta.banking_api.models.JointAccount;
 import com.bnta.banking_api.repositories.AccountHolderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -43,16 +44,23 @@ public class AccountHolderController {
 
 // DELETE
 
-//    @DeleteMapping(value = "/{account_id}")
-//    public ResponseEntity<Long> removeBasicAccount(@PathVariable ("account_id") Long id) {
-//        Optional<AccountHolder> name = accountHolderRepository.findById(id);
-//        if (
-//
-//        AccountHolderRepository.delbyId(id);
-//        return new ResponseEntity<>(id, HttpStatus.OK);
-//    }
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Long> removeBasicAccount(@PathVariable Long id) {
+        Optional<AccountHolder> name = accountHolderRepository.findById(id);
+        if (name.isPresent()) {
+            AccountHolder accountHolder = name.get();
+            try {
+                List<Account> jointAccount = accountHolder.getAccounts().stream()
+                    .filter(account -> account.getClass()
+                            .getName().equals("JointAccount")).toList();
+                for(Account j:jointAccount);
+            }
+             catch (Exception exception){}
+        }
+        accountHolderRepository.deleteById(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
 
-
+    }
 
 
 //        var accountholder = accountHolderRepository.findById(id);
