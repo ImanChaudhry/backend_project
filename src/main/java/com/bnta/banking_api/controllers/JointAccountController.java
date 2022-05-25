@@ -33,10 +33,12 @@
 //            @RequestParam(required = false, name = "balance", defaultValue = "0") double balance,
 //            @RequestParam(required = false, name = "pinnumber") String pinNumber){
 //        if (relationship != null){
-//            return new ResponseEntity<>(jointAccountRepository.findJointAccountByRelationshipIsContainingIgnoreCase(relationship), HttpStatus.OK);
+//            return new ResponseEntity<>(jointAccountRepository
+//            .findJointAccountByRelationshipIsContainingIgnoreCase(relationship), HttpStatus.OK);
 //        }
 //        if (pinNumber != null && balance != 0){
-//            return new ResponseEntity<>(jointAccountRepository.findBasicAccountByPinNumberAndBalance(pinNumber, balance), HttpStatus.OK);
+//            return new ResponseEntity<>(jointAccountRepository
+//            .findBasicAccountByPinNumberAndBalance(pinNumber, balance), HttpStatus.OK);
 //        }
 //        return new ResponseEntity<>(jointAccountRepository.findAll(), HttpStatus.OK);
 //    }
