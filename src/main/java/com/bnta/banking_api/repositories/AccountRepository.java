@@ -7,9 +7,6 @@ import java.util.List;
 
 public interface AccountRepository extends JpaRepository<Account, Long> {
 
-//    List<Account> findAccountByPinNumberAndBalance(String pinNumber, double balance);
-//    List<Account> findAccountByPinNumber(String pinNumber);
-//    List<Account> findAccountByBalance(double balance);
     List<Account> findJointAccountByRelationshipIsContainingIgnoreCase(String relationship);
     List<Account> findBasicAccountByPinNumberAndBalance(String pinNumber, double balance);
     List<Account> findAccountByBalanceGreaterThan(double balance);

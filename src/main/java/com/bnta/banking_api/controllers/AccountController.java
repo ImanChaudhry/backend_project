@@ -114,20 +114,23 @@ public class AccountController {
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
+//    DELETE
+
 
 //    UPDATE
-    @PutMapping("/id")
+    @PutMapping("/{id}")
     public ResponseEntity<Account> updateAccount(
             @PathVariable(value = "id") Long id,
-            @Validated @RequestParam Account accountNumberUpdate,
-            @RequestParam Account pinNumberUpdate,
-            @RequestParam Account balanceUpdate){
+            @RequestBody Account accountNumberUpdate)
+//            @RequestParam Account pinNumberUpdate,
+//            @RequestParam Account balanceUpdate)
+    {
         var account = accountRepository.findById(id);
         if (account.isPresent()){
             Account acc = account.get();
             acc.setAccountNumber(accountNumberUpdate.getAccountNumber());
-            acc.setPinNumber(pinNumberUpdate.getPinNumber());
-            acc.setBalance(balanceUpdate.getBalance());
+            acc.setPinNumber(accountNumberUpdate.getPinNumber());
+            acc.setBalance(accountNumberUpdate.getBalance());
             accountRepository.save(acc);
             return new ResponseEntity<>(acc, HttpStatus.OK);
         }
