@@ -22,7 +22,7 @@ public interface PaymentRepository extends JpaRepository<Payment, Long> {
 
     List<Payment> findPaymentsByDateEquals(LocalDate date);
 
-    @Query("SELECT p FROM Payment p JOIN p.account a WHERE a.id =:id ")
+    @Query("SELECT p FROM Payment p JOIN p.account a WHERE a.id =:id")
     List<Payment> findPaymentsByAccountId(Long id);
 
 //    @Query("SELECT p FROM Payment p JOIN p.basicAccount a Join a.accountHolder ah WHERE ah.name LIKE :name")

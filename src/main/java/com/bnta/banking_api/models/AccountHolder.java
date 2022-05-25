@@ -28,8 +28,8 @@ public class AccountHolder {
     @Enumerated(EnumType.STRING)
     private Employment employment_status;
 
-    @ManyToMany//(mappedBy = "accountHolder")
-    @JsonIgnoreProperties(value = "accountHolder")
+    @ManyToMany(mappedBy = "accountHolders")
+    @JsonIgnoreProperties(value = "accountHolders")
     private List<Account> accounts;
 
 //    DEFAULT CONSTRUCTOR

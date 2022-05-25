@@ -1,8 +1,5 @@
 package com.bnta.banking_api;
 
-import com.bnta.banking_api.models.AccountHolder;
-import com.bnta.banking_api.models.BasicAccount;
-import com.bnta.banking_api.models.Employment;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

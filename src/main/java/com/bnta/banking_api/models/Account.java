@@ -51,6 +51,7 @@ public class Account {
 
     // new added
     @Column
+    @Enumerated(EnumType.STRING)
     private AccountType accountType;
 
     @Column
@@ -58,7 +59,7 @@ public class Account {
 
     @ManyToMany//(mappedBy = "accounts")
     @JoinTable(
-            name = "jointAccount_accountHolder",
+            name = "Account_accountHolder",
             joinColumns = {@JoinColumn(name = "account_id", nullable = false)},
             inverseJoinColumns = {@JoinColumn(name = "account_holder_id", nullable = false)}
     )

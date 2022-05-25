@@ -1,0 +1,3 @@
+2022-05-25 12:32:46 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]ACCOUNTS_ID"; expected "ALTER, ANALYZE"; SQL statement:
+ACCOUNTS_ID [42001-212]

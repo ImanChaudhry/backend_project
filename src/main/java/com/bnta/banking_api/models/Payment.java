@@ -77,7 +77,7 @@ public class Payment <T> {
     }
 
     public void setAccount(Account account) {
-        this.account = (BasicAccount) account;
+        this.account = account;
     }
 
     public Category getCategory() {

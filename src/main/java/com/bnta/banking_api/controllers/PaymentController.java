@@ -93,7 +93,6 @@ public class PaymentController {
 //
 //    }
 
-
     // Create
     @PostMapping
     public ResponseEntity<Payment> createNewPayment(@RequestBody Payment payment){
