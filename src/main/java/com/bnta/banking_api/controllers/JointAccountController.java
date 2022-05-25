@@ -1,6 +1,5 @@
 package com.bnta.banking_api.controllers;
 
-import com.bnta.banking_api.models.BasicAccount;
 import com.bnta.banking_api.models.JointAccount;
 import com.bnta.banking_api.repositories.JointAccountRepository;
 import com.bnta.banking_api.repositories.PaymentRepository;
@@ -28,11 +27,6 @@ public class JointAccountController {
     SubscriptionRepository subscriptionRepository;
 
 //    INDEX
-//    @GetMapping
-//    public ResponseEntity<List<JointAccount>> getJointAccounts(){
-//        return new ResponseEntity<>(jointAccountRepository.findAll(), HttpStatus.OK);
-//    }
-
     @GetMapping
     public ResponseEntity<List<JointAccount>>getJointAccountAndFilter(
             @RequestParam(required = false, name = "relationship") String relationship,
@@ -50,7 +44,8 @@ public class JointAccountController {
 //    SHOW
     @GetMapping(value = "/{id}")
     public ResponseEntity<Optional<JointAccount>> getJointAccount(@PathVariable Long id){
-        return new ResponseEntity<>(jointAccountRepository.findById(id), HttpStatus.OK);
+        var jointAccount = jointAccountRepository.findById(id);
+        return new ResponseEntity<>(jointAccount, jointAccount.isEmpty() ? HttpStatus.NOT_FOUND : HttpStatus.OK);
     }
 
 //    CREATE/POST
@@ -61,18 +56,15 @@ public class JointAccountController {
     }
 
 //    DELETE
-//    @DeleteMapping(value = "/{id}")
-//    public ResponseEntity<Long> removeJointAccount(@PathVariable("id") Long id){
-//        jointAccountRepository.deleteById(id);
-//        return new ResponseEntity<>(id, HttpStatus.OK);
-//    }
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Long> removeJointAccount(@PathVariable("id") Long id){
         Optional<JointAccount> ja = jointAccountRepository.findById(id);
         if (ja.isPresent()){
             JointAccount jAcc = ja.get();
-            jAcc.getPayments().stream().forEach(payment -> paymentRepository.deleteById(payment.getId()));
-            jAcc.getSubscriptions().stream().forEach(subscription -> subscriptionRepository.deleteById(subscription.getId()));
+            jAcc.getPayments().stream()
+                    .forEach(payment -> paymentRepository.deleteById(payment.getId()));
+            jAcc.getSubscriptions().stream()
+                    .forEach(subscription -> subscriptionRepository.deleteById(subscription.getId()));
             jAcc.setPayments(new ArrayList<>());
             jAcc.setSubscriptions(new ArrayList<>());
             jointAccountRepository.deleteById(id);
