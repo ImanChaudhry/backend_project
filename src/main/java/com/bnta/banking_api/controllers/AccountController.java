@@ -80,8 +80,8 @@ public class AccountController {
     }
 
 //    SHOW
-    @GetMapping("/{is_debit}")
-    // localhost:8080/accounts/is_debit?isdebit=true
+    @GetMapping("/{isdebit}")
+    // localhost:8080/accounts/isdebit?isdebit=true
     public ResponseEntity<List<Account>> getAccountByIsDebit(
             @RequestParam(required = false, name = "isdebit") boolean isDebit){
         return new ResponseEntity<>(accountRepository.findAccountByIsDebit(isDebit), HttpStatus.OK);
@@ -99,7 +99,7 @@ public class AccountController {
 
 //    DELETE
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Long> removeAccount(@PathVariable("id") Long id) {
+    public ResponseEntity<Long> removeAccountById(@PathVariable("id") Long id) {
         Optional<Account> account = accountRepository.findById(id);
         if (account.isPresent()) {
             Account acc = account.get();
@@ -114,17 +114,12 @@ public class AccountController {
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
-//    DELETE
-
 
 //    UPDATE
     @PutMapping("/{id}")
     public ResponseEntity<Account> updateAccount(
             @PathVariable(value = "id") Long id,
-            @RequestBody Account accountNumberUpdate)
-//            @RequestParam Account pinNumberUpdate,
-//            @RequestParam Account balanceUpdate)
-    {
+            @RequestBody Account accountNumberUpdate) {
         var account = accountRepository.findById(id);
         if (account.isPresent()){
             Account acc = account.get();

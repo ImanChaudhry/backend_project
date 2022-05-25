@@ -11,6 +11,7 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
     List<Account> findBasicAccountByPinNumberAndBalance(String pinNumber, double balance);
     List<Account> findAccountByBalanceGreaterThan(double balance);
     List<Account> findAccountByIsDebit(boolean isDebit);
+    List<Account> findAccountByPinNumber(String pinNumber);
 
 
 }
