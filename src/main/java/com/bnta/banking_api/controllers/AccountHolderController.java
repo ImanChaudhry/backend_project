@@ -3,7 +3,6 @@ package com.bnta.banking_api.controllers;
 
 import com.bnta.banking_api.models.Account;
 import com.bnta.banking_api.models.AccountHolder;
-import com.bnta.banking_api.models.JointAccount;
 import com.bnta.banking_api.repositories.AccountHolderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

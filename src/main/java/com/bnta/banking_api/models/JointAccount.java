@@ -2,7 +2,7 @@ package com.bnta.banking_api.models;
 
 import java.util.List;
 import javax.persistence.*;
-
+/*
 @Entity
 @Table(name = "joint_accounts")
 public class JointAccount extends Account{
@@ -47,3 +47,6 @@ public class JointAccount extends Account{
         this.accountHolders.remove(accountHolder);
     }
 }
+
+
+ */
