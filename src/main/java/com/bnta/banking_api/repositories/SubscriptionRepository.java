@@ -11,7 +11,6 @@ public interface SubscriptionRepository extends JpaRepository<Subscription, Long
 
     List<Subscription> findByCategory(Category category);
     List<Subscription> findByPriceGreaterThan(double price);
-    List<Subscription> findByIsActive(boolean is_active);
-
+    List<Subscription> findByIsActive(boolean isActive);
     List<Subscription> findByDateOfPayment(LocalDate dateOfPayment);
 }
