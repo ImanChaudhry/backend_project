@@ -2,6 +2,7 @@ package com.bnta.banking_api.models;
 
 import com.bnta.banking_api.BankingApiApplication;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.springframework.boot.SpringApplication;
 
 import javax.persistence.*;
@@ -10,10 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
+//@JsonDeserialize(as=BasicAccount.class)
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class Account {
+@Table(name = "accounts")
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -43,10 +45,29 @@ public abstract class Account {
 
 
     @OneToMany(mappedBy = "account")
-    @JsonIgnoreProperties("account")
+    @JsonIgnoreProperties(value = "account")
     private List<Subscription> subscriptions;
 
-    public Account(boolean isDebit, double balance, String pinNumber) {
+
+    // new added
+    @Enumerated(EnumType.STRING)
+    @Column
+    private AccountType accountType;
+
+    @Column
+    private String relationship;
+
+    @ManyToMany//(mappedBy = "accounts")
+    @JoinTable(
+            name = "account_accountHolder",
+            joinColumns = {@JoinColumn(name = "account_id", nullable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "account_holder_id", nullable = false)}
+    )
+    @JsonIgnoreProperties(value = "account")
+    private List<AccountHolder> accountHolders;
+
+
+    public Account(boolean isDebit, double balance, String pinNumber, AccountType accountType, String relationship, List<AccountHolder> accountHolders) {
         this.isDebit = isDebit;
         this.balance = balance;
         this.accountNumber = generateAccountNumber();
@@ -54,6 +75,11 @@ public abstract class Account {
         this.expirationDate = generateExpirationDate();
         this.cvc = generateCVC();
         this.pinNumber = pinNumber;
+
+        // new
+        this.accountType = accountType;
+        this.relationship = relationship;
+        this.accountHolders = accountHolders;
     }
 
     protected Account(){}
@@ -151,7 +177,6 @@ public abstract class Account {
         this.subscriptions = subscriptions;
     }
 
-
     // add and remove payments and subscriptions
     public void addPayment(Payment payment){
         this.payments.add(payment);
@@ -167,6 +192,23 @@ public abstract class Account {
 
     public void removeSubscription(Subscription subscription){
         this.subscriptions.remove(subscription);
+    }
+
+    // new
+    public AccountType getAccountType() {
+        return accountType;
+    }
+
+    public List<AccountHolder> getAccountHolders() {
+        return accountHolders;
+    }
+
+    public void setAccountType(AccountType accountType) {
+        this.accountType = accountType;
+    }
+
+    public void setAccountHolders(List<AccountHolder> accountHolders) {
+        this.accountHolders = accountHolders;
     }
 
     @Override
