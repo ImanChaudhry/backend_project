@@ -73,19 +73,19 @@ public class AccountController {
 
 //    SHOW
     @GetMapping("/balance")
-    //localhost:8080/accounts/balance?greaterthan=10000
+    //localhost:8080/accounts/balance?greaterthan=300000
     public ResponseEntity<List<Account>> getAccountByBalanceGreaterThan(
             @RequestParam(required = false, name = "greaterthan", defaultValue = "0") double balance){
         return new ResponseEntity<>(accountRepository.findAccountByBalanceGreaterThan(balance), HttpStatus.OK);
     }
 
 //    SHOW
-    @GetMapping("/{isdebit}")
-    // localhost:8080/accounts/isdebit?isdebit=true
-    public ResponseEntity<List<Account>> getAccountByIsDebit(
-            @RequestParam(required = false, name = "isdebit") boolean isDebit){
-        return new ResponseEntity<>(accountRepository.findAccountByIsDebit(isDebit), HttpStatus.OK);
-    }
+//    @GetMapping("/{isdebit}")
+//    // localhost:8080/accounts/isdebit?isdebit=true
+//    public ResponseEntity<List<Account>> getAccountByIsDebit(
+//            @RequestParam(required = false, name = "isdebit") boolean isDebit){
+//        return new ResponseEntity<>(accountRepository.findAccountByIsDebit(isDebit), HttpStatus.OK);
+//    }
 
 
 //    CREATE/POST
