@@ -15,13 +15,21 @@ import java.util.List;
 @SpringBootTest
 class BankingApiApplicationTests {
 
+	
 	@Autowired
-	AccountHolderRepository accountHolderRepository;
+	private SubscriptionRepository subscriptionRepository;
+	@Autowired
+	private AccountHolderRepository accountHolderRepository;
+	@Autowired
+	private AccountRepository accountRepository;
+	@Autowired
+	private PaymentRepository paymentRepository;
 
 
 	@Test
 	void contextLoads() {
 	}
+	
 
 	@Test
 	public void findAccountHolderByName(){
@@ -45,6 +53,24 @@ class BankingApiApplicationTests {
 	public void findAccountHolderByEmploymentStatus(){
 		List<AccountHolder> found = this.accountHolderRepository.findAccountHolderByName("Jess Blue");
 		AssertionsForClassTypes.assertThat(found.size()).isEqualTo(1);
+	}
+	
+	@Test
+	public void testFindByCategory() {
+		assertThat(subscriptionRepository.findByCategory(Category.BILLS)).isNotNull();
+		assertThat(subscriptionRepository.findByCategory(Category.BILLS).size()).isEqualTo(4);
+	}
+	@Test
+	public void testFindByPriceGreaterThan() {
+		assertThat(subscriptionRepository.findByPriceGreaterThan(100).size()).isEqualTo(1);
+	}
+	@Test
+	public void testFindByIsActiveEquals(){
+		assertThat(subscriptionRepository.findByIsActiveEquals(true).size()).isEqualTo(12);
+	}
+	@Test
+	public void testFindByDateOfPaymentEquals(){
+		assertThat(subscriptionRepository.findByDateOfPaymentEquals(LocalDate.of(2016,12,14)).size()).isEqualTo(1);
 	}
 
 }
