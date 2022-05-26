@@ -1,8 +1,15 @@
 package com.bnta.banking_api.models;
+<<<<<<< HEAD
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+=======
 /*
+>>>>>>> 11c3057e4664165678d7fef2d580a1d4f221f3aa
 import java.util.List;
 import javax.persistence.*;
 
+/*
 @Entity
 @Table(name = "joint_accounts")
 public class JointAccount extends Account{
@@ -16,6 +23,7 @@ public class JointAccount extends Account{
             joinColumns = {@JoinColumn(name = "joint_account_id", nullable = true)},
             inverseJoinColumns = {@JoinColumn(name = "account_holder_id", nullable = true)}
     )
+    @JsonIgnoreProperties(value = "account")
     private List<AccountHolder> accountHolders;
 
     public JointAccount(boolean isDebit, double balance, String pinNumber,
@@ -47,4 +55,9 @@ public class JointAccount extends Account{
         this.accountHolders.remove(accountHolder);
     }
 }
+<<<<<<< HEAD
+
+ */
+=======
 */
+>>>>>>> 11c3057e4664165678d7fef2d580a1d4f221f3aa
