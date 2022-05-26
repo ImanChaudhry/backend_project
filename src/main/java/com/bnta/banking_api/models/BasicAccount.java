@@ -1,8 +1,12 @@
 package com.bnta.banking_api.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonRootName;
 
+=======
+/*
+>>>>>>> 11c3057e4664165678d7fef2d580a1d4f221f3aa
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,5 +39,9 @@ public class BasicAccount extends Account {
     }
 
 }
+<<<<<<< HEAD
 
  */
+=======
+*/
+>>>>>>> 11c3057e4664165678d7fef2d580a1d4f221f3aa

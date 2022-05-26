@@ -42,7 +42,7 @@ public class DataLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        
+
 
         // AccountHolder data
         AccountHolder accountHolder1 = new AccountHolder("Aisha Mohamed", LocalDate.of(2000, 2, 23), "Abc Street, London", Employment.FULL_TIME);
@@ -148,8 +148,8 @@ public class DataLoader implements ApplicationRunner {
         Payment payment19 = new Payment("Gym", LocalDate.of(2022, 3, 3),  31.99, account16,Category.HEALTH);
         Payment payment20 = new Payment("B&M", LocalDate.of(2022, 2, 16),  18.22, account14,Category.SHOPPING);
         paymentRepository.saveAll(Arrays.asList(payment1, payment2, payment3, payment4, payment5, payment6, payment7,
-                                payment8, payment9, payment10, payment11, payment12, payment13, payment14, payment15,
-                                payment16, payment17, payment18, payment19, payment20));
+                payment8, payment9, payment10, payment11, payment12, payment13, payment14, payment15,
+                payment16, payment17, payment18, payment19, payment20));
 
 
         // Subscription data

@@ -15,7 +15,7 @@ public interface PaymentRepository extends JpaRepository<Payment, Long> {
     List<Payment> findPaymentsByNameIsContainingIgnoreCase(String name);
 
     List<Payment> findPaymentsByDateGreaterThanAndDateLessThan(LocalDate from, LocalDate to);
-    
+
 
 
     List<Payment> findPaymentsByCategory(Category category);

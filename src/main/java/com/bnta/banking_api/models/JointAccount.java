@@ -1,7 +1,11 @@
 package com.bnta.banking_api.models;
+<<<<<<< HEAD
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+=======
+/*
+>>>>>>> 11c3057e4664165678d7fef2d580a1d4f221f3aa
 import java.util.List;
 import javax.persistence.*;
 
@@ -51,5 +55,9 @@ public class JointAccount extends Account{
         this.accountHolders.remove(accountHolder);
     }
 }
+<<<<<<< HEAD
 
  */
+=======
+*/
+>>>>>>> 11c3057e4664165678d7fef2d580a1d4f221f3aa
