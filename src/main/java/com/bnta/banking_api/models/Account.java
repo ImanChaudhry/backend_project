@@ -50,18 +50,9 @@ public class Account {
 
 
     // new added
-<<<<<<< HEAD
-    @Enumerated(EnumType.STRING)
-    @Column
-=======
-<<<<<<< HEAD
-    @Enumerated(EnumType.STRING)
-    @Column
-=======
+
     @Column
     @Enumerated(EnumType.STRING)
->>>>>>> 8c24c2d00ff2948730d94cb04d9519e22f428f17
->>>>>>> 9ac571282553c5d3289bac4da070765ae5d32d3d
     private AccountType accountType;
 
     @Column
@@ -204,10 +195,9 @@ public class Account {
         this.subscriptions.remove(subscription);
     }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 9ac571282553c5d3289bac4da070765ae5d32d3d
+
+
     // new
     public AccountType getAccountType() {
         return accountType;
@@ -225,9 +215,7 @@ public class Account {
         this.accountHolders = accountHolders;
     }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
     public void addAccountHolder(AccountHolder accountHolder){
         this.accountHolders.add(accountHolder);
     }
@@ -237,14 +225,6 @@ public class Account {
     }
 
 
-=======
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 11c3057e4664165678d7fef2d580a1d4f221f3aa
->>>>>>> 8c24c2d00ff2948730d94cb04d9519e22f428f17
->>>>>>> 9ac571282553c5d3289bac4da070765ae5d32d3d
     @Override
     public String toString() {
         return "Account{" +
