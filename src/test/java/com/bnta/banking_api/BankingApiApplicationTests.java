@@ -1,70 +1,30 @@
 package com.bnta.banking_api;
 
-<<<<<<< HEAD
-import com.bnta.banking_api.models.Account;
-import com.bnta.banking_api.repositories.AccountRepository;
-=======
 
 import com.bnta.banking_api.models.Account;
 import com.bnta.banking_api.models.AccountHolder;
-import com.bnta.banking_api.repositories.AccountHolderRepository;
-import org.assertj.core.api.AssertionsForClassTypes;
-
-
 import com.bnta.banking_api.models.Category;
 import com.bnta.banking_api.models.Payment;
-import com.bnta.banking_api.repositories.PaymentRepository;
 
->>>>>>> 9ac571282553c5d3289bac4da070765ae5d32d3d
+import com.bnta.banking_api.repositories.AccountRepository;
+import com.bnta.banking_api.repositories.AccountHolderRepository;
+import com.bnta.banking_api.repositories.PaymentRepository;
+import com.bnta.banking_api.repositories.SubscriptionRepository;
+
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-<<<<<<< HEAD
-import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-
-@SpringBootTest
-class BankingApiApplicationTests {
-
-
-	@Autowired
-	AccountRepository accountRepository;
-=======
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@SpringBootTest
-class BankingApiApplicationTests {
-
-	
-	@Autowired
-<<<<<<< HEAD
-	AccountHolderRepository accountHolderRepository;
-=======
-import javax.annotation.Resource;
-import java.time.LocalDate;
-import java.util.List;
-
-import com.bnta.banking_api.models.Account;
-import com.bnta.banking_api.models.Category;
-import com.bnta.banking_api.models.Subscription;
-import com.bnta.banking_api.repositories.AccountHolderRepository;
-import com.bnta.banking_api.repositories.AccountRepository;
-import com.bnta.banking_api.repositories.PaymentRepository;
-import com.bnta.banking_api.repositories.SubscriptionRepository;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
-import org.springframework.boot.test.context.SpringBootTest;
-
-import java.time.LocalDate;
 
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @SpringBootTest
 class BankingApiApplicationTests {
@@ -83,7 +43,6 @@ class BankingApiApplicationTests {
 	private PaymentRepository paymentRepository;
 
 
->>>>>>> 9ac571282553c5d3289bac4da070765ae5d32d3d
 
 	@Test
 	void contextLoads() {
@@ -213,6 +172,10 @@ class BankingApiApplicationTests {
 	public void testFindByDateOfPaymentEquals(){
 		assertThat(subscriptionRepository.findByDateOfPaymentEquals(LocalDate.of(2016,12,14)).size()).isEqualTo(1);
 	}
+		
+	
+	
+	// tests for account
 
 	@Test
 	public void canFindAccountByBalanceGreaterThan100000(){
