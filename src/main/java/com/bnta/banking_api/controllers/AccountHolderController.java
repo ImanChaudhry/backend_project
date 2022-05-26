@@ -57,7 +57,7 @@ public class AccountHolderController {
 
     @GetMapping(value = "/name={name}")        // localhost:8080/account_holder/name
     public ResponseEntity<Optional<AccountHolder>> getAccountHolderByName(@PathVariable String name) {
-        var accountHolderByName = accountHolderRepository.findAccountHolderByName(name);
+        var accountHolderByName = accountHolderRepository.findAccountHolderByNameIsContainingIgnoreCase(name);
         return new ResponseEntity(accountHolderRepository, HttpStatus.OK);
     }
     @GetMapping(value = "/dob")        // localhost:8080/account_holder/dob?dob=1997-07-25
