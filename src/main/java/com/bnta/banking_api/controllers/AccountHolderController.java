@@ -5,13 +5,17 @@ import com.bnta.banking_api.models.Account;
 import com.bnta.banking_api.models.AccountHolder;
 import com.bnta.banking_api.models.Employment;
 import com.bnta.banking_api.repositories.AccountHolderRepository;
+import com.bnta.banking_api.repositories.PaymentRepository;
+import com.bnta.banking_api.repositories.SubscriptionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.naming.Name;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +25,12 @@ public class AccountHolderController {
 
     @Autowired
     private AccountHolderRepository accountHolderRepository;
+
+    @Autowired
+    private PaymentRepository paymentRepository;
+
+    @Autowired
+    private SubscriptionRepository subscriptionRepository;
 
 
 // INDEX
@@ -50,8 +60,8 @@ public class AccountHolderController {
         var accountHolderByName = accountHolderRepository.findAccountHolderByName(name);
         return new ResponseEntity(accountHolderRepository, HttpStatus.OK);
     }
-    @GetMapping(value = "/dob={dob}")        // localhost:8080/account_holder/dob
-    public ResponseEntity<Optional<AccountHolder>> getAccountHolderByDob(@PathVariable LocalDate dob){
+    @GetMapping(value = "/dob")        // localhost:8080/account_holder/dob?dob=1997-07-25
+    public ResponseEntity<Optional<AccountHolder>> getAccountHolderByDob(@RequestParam(name = "dob")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dob){
         var accountHolderByDob = accountHolderRepository.findAccountHolderByDob(dob);
         return new ResponseEntity(accountHolderRepository, HttpStatus.OK);
     }
@@ -62,31 +72,46 @@ public class AccountHolderController {
             return new ResponseEntity(accountHolderRepository, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/employment={employment_status}")        // localhost:8080/account_holder/employment_status
-        public ResponseEntity<AccountHolder> getAccountHolderEmployment_Status(@PathVariable Employment employment_status){
-            return new ResponseEntity(accountHolderRepository.findAccountHolderByEmployment_status(employment_status), HttpStatus.OK);
+    @GetMapping(value = "/employment={employmentStatus}")        // localhost:8080/account_holder/employmentStatus
+        public ResponseEntity<AccountHolder> getAccountHolderEmploymentStatus(@PathVariable Employment employmentStatus){
+            return new ResponseEntity(accountHolderRepository.findAccountHolderByEmploymentStatus(employmentStatus), HttpStatus.OK);
     }
 
 
 
 // DELETE
+// 1 account holder has several accounts (basic, joint)
+// basic & joint accounts have several payments & subscriptions = they are linked together
+// many to many relationship between account holders & accounts
+    // cannot delete entire account holder
+    // must delete one by one - payment first, then subscription
+// By selecting an account holder to remove (Postman)
+// payments & subscriptions from that account holder are deleted
 
     @DeleteMapping(value = "/id={id}")
     public ResponseEntity<Long> removeAccount(@PathVariable Long id) {
-        Optional<AccountHolder> name = accountHolderRepository.findById(id);
-        if (name.isPresent()) {
-            AccountHolder accountHolder = name.get();
-            try {
-                List<Account> Account = accountHolder.getAccounts().stream()
-                    .filter(account -> account.getClass()
-                            .getName().equals("Account")).toList();
-                for(Account a:Account);
-            }
-             catch (Exception exception){}
+        Optional<AccountHolder> found = accountHolderRepository.findById(id);
+        if (found.isPresent()) {
+            AccountHolder accountHolder = found.get();
+// below: we aim to delete payments associated to chosen(id) account
+            accountHolder.getAccounts().stream()
+                    .forEach(acc -> acc.getPayments()
+                            .forEach(payment -> paymentRepository.deleteById(payment.getId())));
+// below: we aim to delete subscriptions associated to chosen(id) account from Subscription repository
+            accountHolder.getAccounts().stream()
+                    .forEach(acc -> acc.getSubscriptions()
+                            .forEach(subscription -> subscriptionRepository.deleteById(subscription.getId())));
+// below: we no longer need the chosen account now payment and subscription are removed
+    // .removeAccountHolder = deletes chosen account holder
+            accountHolder.getAccounts().stream().forEach(account -> account.removeAccountHolder(accountHolder));
+// below: we need a new ArrayList to "update" our list of account holders
+            accountHolder.setAccounts(new ArrayList<>());
+// below: we can finally delete the account holder based on id from account Holder repository
+    // account holder no longer has a relationship to all the other tables
+            accountHolderRepository.deleteById(id);
+            return new ResponseEntity<>(id, HttpStatus.OK);
         }
-        accountHolderRepository.deleteById(id);
-        return new ResponseEntity<>(id, HttpStatus.OK);
-
+        return new ResponseEntity<>(id, HttpStatus.NOT_FOUND);
     }
 
 

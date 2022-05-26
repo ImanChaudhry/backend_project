@@ -12,7 +12,7 @@ import java.util.List;
 public interface AccountHolderRepository extends JpaRepository<AccountHolder, Long> {
 
 
-    List<AccountHolder> findAccountHolderById (Long id);
+//    List<AccountHolder> findById (Long id);
 
     List<AccountHolder> findAccountHolderByName(String name);
 
@@ -20,7 +20,7 @@ public interface AccountHolderRepository extends JpaRepository<AccountHolder, Lo
 
     List<AccountHolder> findAccountHolderByAddress(String address);
 
-    List<AccountHolder> findAccountHolderByEmployment_status(Employment employment_status);
+    List<AccountHolder> findAccountHolderByEmploymentStatus(Employment employmentStatus);
 
 
 

@@ -26,7 +26,7 @@ public class AccountHolder {
 
     @Column
     @Enumerated(EnumType.STRING)
-    private Employment employment_status;
+    private Employment employmentStatus;
 
     @ManyToMany(mappedBy = "accountHolders")
     @JsonIgnoreProperties("accountHolders")
@@ -36,11 +36,11 @@ public class AccountHolder {
     protected AccountHolder(){}
 
 //    CONSTRUCTOR
-    public AccountHolder(String name, LocalDate dob, String address, Employment employment_status) {
+    public AccountHolder(String name, LocalDate dob, String address, Employment employmentStatus) {
         this.name = name;
         this.dob = dob;
         this.address = address;
-        this.employment_status = employment_status;
+        this.employmentStatus = employmentStatus;
         this.accounts = new ArrayList<Account>();
     }
 
@@ -72,12 +72,12 @@ public class AccountHolder {
         this.address = address;
     }
 
-    public Employment getEmployment_status() {
-        return employment_status;
+    public Employment getEmploymentStatus() {
+        return employmentStatus;
     }
 
-    public void setEmployment_status(Employment employment_status) {
-        this.employment_status = employment_status;
+    public void setEmploymentStatus(Employment employmentStatus) {
+        this.employmentStatus = employmentStatus;
     }
 
     public List<Account> getAccounts() {

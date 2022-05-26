@@ -213,6 +213,14 @@ public class Account {
         this.accountHolders = accountHolders;
     }
 
+    public void addAccountHolder(AccountHolder accountHolder){
+        this.accountHolders.add(accountHolder);
+    }
+
+    public void removeAccountHolder(AccountHolder accountHolder){
+        this.accountHolders.remove(accountHolder);
+    }
+
 
     @Override
     public String toString() {
