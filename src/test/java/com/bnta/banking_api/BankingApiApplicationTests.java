@@ -54,7 +54,7 @@ class BankingApiApplicationTests {
 
 	@Test
 	public void findAccountHolderByName(){
-		List<AccountHolder> found = this.accountHolderRepository.findAccountHolderByName("Kim Ye");
+		List<AccountHolder> found = this.accountHolderRepository.findAccountHolderByNameIsContainingIgnoreCase("Kim Ye");
 		AssertionsForClassTypes.assertThat(found.size()).isEqualTo(1);
 	}
 
@@ -72,7 +72,7 @@ class BankingApiApplicationTests {
 
 	@Test
 	public void findAccountHolderByEmploymentStatus() {
-		List<AccountHolder> found = this.accountHolderRepository.findAccountHolderByName("Jess Blue");
+		List<AccountHolder> found = this.accountHolderRepository.findAccountHolderByNameIsContainingIgnoreCase("Jess Blue");
 		AssertionsForClassTypes.assertThat(found.size()).isEqualTo(1);
 	}
 
