@@ -2,8 +2,6 @@ package com.bnta.banking_api.components;
 
 
 import com.bnta.banking_api.models.*;
-//import com.bnta.banking_api.models.BasicAccount;
-//import com.bnta.banking_api.models.JointAccount;
 import com.bnta.banking_api.repositories.AccountRepository;
 import com.bnta.banking_api.repositories.PaymentRepository;
 import com.bnta.banking_api.models.Payment;

@@ -23,7 +23,9 @@ import java.util.List;
 @SpringBootTest
 class BankingApiApplicationTests {
 
+	
 	@Autowired
+<<<<<<< HEAD
 	AccountHolderRepository accountHolderRepository;
 =======
 import javax.annotation.Resource;
@@ -63,11 +65,21 @@ class BankingApiApplicationTests {
 	@Autowired
 	private PaymentRepository paymentRepository;
 >>>>>>> 8c24c2d00ff2948730d94cb04d9519e22f428f17
+=======
+	private SubscriptionRepository subscriptionRepository;
+	@Autowired
+	private AccountHolderRepository accountHolderRepository;
+	@Autowired
+	private AccountRepository accountRepository;
+	@Autowired
+	private PaymentRepository paymentRepository;
+>>>>>>> 5ef8caff52c37a9f6ded0bb2f87f72058effbe3f
 
 
 	@Test
 	void contextLoads() {
 	}
+	
 
 <<<<<<< HEAD
 	@Test
@@ -172,6 +184,24 @@ class BankingApiApplicationTests {
 	public void testFindByDateOfPaymentEquals(){
 		assertThat(subscriptionRepository.findByDateOfPaymentEquals(LocalDate.of(2016,12,14)).size()).isEqualTo(1);
 >>>>>>> 8c24c2d00ff2948730d94cb04d9519e22f428f17
+	}
+	
+	@Test
+	public void testFindByCategory() {
+		assertThat(subscriptionRepository.findByCategory(Category.BILLS)).isNotNull();
+		assertThat(subscriptionRepository.findByCategory(Category.BILLS).size()).isEqualTo(4);
+	}
+	@Test
+	public void testFindByPriceGreaterThan() {
+		assertThat(subscriptionRepository.findByPriceGreaterThan(100).size()).isEqualTo(1);
+	}
+	@Test
+	public void testFindByIsActiveEquals(){
+		assertThat(subscriptionRepository.findByIsActiveEquals(true).size()).isEqualTo(12);
+	}
+	@Test
+	public void testFindByDateOfPaymentEquals(){
+		assertThat(subscriptionRepository.findByDateOfPaymentEquals(LocalDate.of(2016,12,14)).size()).isEqualTo(1);
 	}
 
 }
