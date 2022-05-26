@@ -112,13 +112,13 @@ This API was coded in Java. We used the SpringBoot that implements the Spring Fr
 Example of updating an account by id:
 - localhost:8080/accounts/1
 
-    {
-        "balance": 445566.0,
-        "accountNumber": "98765432",
-        "expirationDate": "0442",
-        "cvc": "452",
-        "pinNumber": "9090"
-    }
+        {
+            "balance": 445566.0,
+            "accountNumber": "98765432",
+            "expirationDate": "0442",
+            "cvc": "452",
+            "pinNumber": "9090"
+        }
 
 ## 4. DELETE
 We need to insert 
