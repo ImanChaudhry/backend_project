@@ -112,5 +112,7 @@ This API was coded in Java. We used the SpringBoot that implements the Spring Fr
 We need to insert 
 
 # Tests
-(INSERT SCREENSHOT OF TESTS)
+
+<img width="607" alt="Screenshot 2022-05-26 at 6 00 17 PM" src="https://user-images.githubusercontent.com/67974517/170538203-b6070226-3edd-4da4-8a27-aa866b952160.png">
+
 
