@@ -56,19 +56,19 @@ public class AccountHolderController {
     }
 
     @GetMapping(value = "/name={name}")        // localhost:8080/account_holder/name
-    public ResponseEntity<Optional<AccountHolder>> getAccountHolderByName(@PathVariable String name) {
-        Optional<AccountHolder> accountHolderByName = accountHolderRepository.findAccountHolderByNameIsContainingIgnoreCase(name);
+    public ResponseEntity<List<AccountHolder>> getAccountHolderByName(@PathVariable String name) {
+        List<AccountHolder> accountHolderByName = accountHolderRepository.findAccountHolderByNameIsContainingIgnoreCase(name);
         return new ResponseEntity<>(accountHolderByName, HttpStatus.OK);
     }
     @GetMapping(value = "/dob")        // localhost:8080/account_holder/dob?dob=1997-07-25
-    public ResponseEntity<Optional<AccountHolder>> getAccountHolderByDob(@RequestParam(name = "dob")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dob){
-        Optional<AccountHolder> accountHolderByDob = accountHolderRepository.findAccountHolderByDob(dob);
+    public ResponseEntity<List<AccountHolder>> getAccountHolderByDob(@RequestParam(name = "dob")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dob){
+        List<AccountHolder> accountHolderByDob = accountHolderRepository.findAccountHolderByDob(dob);
         return new ResponseEntity<>(accountHolderByDob, HttpStatus.OK);
     }
 
     @GetMapping(value = "/address={address}")        // localhost:8080/account_holder/address
-        public ResponseEntity<Optional<AccountHolder>> getAccountHolderByAddress(@PathVariable String address){
-            Optional<AccountHolder> accountHolderByAddress = accountHolderRepository.findAccountHolderByAddress(address);
+        public ResponseEntity<List<AccountHolder>> getAccountHolderByAddress(@PathVariable String address){
+            List<AccountHolder> accountHolderByAddress = accountHolderRepository.findAccountHolderByAddress(address);
             return new ResponseEntity<>(accountHolderByAddress, HttpStatus.OK);
     }
 
