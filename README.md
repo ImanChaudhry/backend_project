@@ -18,9 +18,19 @@ This API was coded in Java. We used the SpringBoot that implements the Spring Fr
 
 
 # Project timeline
-Friday 20/05/2022 -- Project group was set + ideas for project theme
-Monday 23/05/2022 -- Project theme set + Excalidraw live collaboration used for initial class diagram + Model + 
-Tuesday 24/05/2022 -- Proje
+
+~ **Friday 20/05/2022** -- Project group was set + ideas for project theme
+
+~ **Monday 23/05/2022** -- Project theme set + Excalidraw live collaboration used for initial class diagram + Model 
+
+~ **Tuesday 24/05/2022** -- Repository layer + Components + Controllers
+
+~ **Wednesday 25/05/2022** -- Deugging + Queries
+
+~ **Thursday 26/05/2022** -- Branch merging + Presentation preperation
+
+~ **Friday 27/05/2022** -- Presentation day
+
 (insert screenshot from slides of project timeline)
 
 
