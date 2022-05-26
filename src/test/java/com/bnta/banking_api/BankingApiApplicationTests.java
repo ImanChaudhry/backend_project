@@ -32,7 +32,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @SpringBootTest
 class BankingApiApplicationTests {
 
-	@Resource
+	@Autowired
 	PaymentRepository paymentRepository;
 
 
