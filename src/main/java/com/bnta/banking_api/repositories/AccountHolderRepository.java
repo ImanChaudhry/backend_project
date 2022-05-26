@@ -14,7 +14,7 @@ public interface AccountHolderRepository extends JpaRepository<AccountHolder, Lo
 
 //    List<AccountHolder> findById (Long id);
 
-    List<AccountHolder> findAccountHolderByName(String name);
+    List<AccountHolder> findAccountHolderByNameIsContainingIgnoreCase(String name);
 
     List<AccountHolder> findAccountHolderByDob(LocalDate dob);
 
