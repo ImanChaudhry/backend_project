@@ -1,6 +1,6 @@
 package com.bnta.banking_api;
 
-<<<<<<< HEAD
+
 import com.bnta.banking_api.models.Category;
 import com.bnta.banking_api.models.Payment;
 import com.bnta.banking_api.repositories.PaymentRepository;
@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import javax.annotation.Resource;
 import java.time.LocalDate;
 import java.util.List;
-=======
+
 import com.bnta.banking_api.models.Account;
 import com.bnta.banking_api.models.Category;
 import com.bnta.banking_api.models.Subscription;
@@ -25,22 +25,32 @@ import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDoc
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
->>>>>>> 11c3057e4664165678d7fef2d580a1d4f221f3aa
+
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @SpringBootTest
 class BankingApiApplicationTests {
 
+	
 	@Autowired
-	PaymentRepository paymentRepository;
+	private SubscriptionRepository subscriptionRepository;
+
+	@Autowired
+	private AccountHolderRepository accountHolderRepository;
+
+	@Autowired
+	private AccountRepository accountRepository;
+
+	@Autowired
+	private PaymentRepository paymentRepository;
 
 
 	@Test
 	void contextLoads() {
 	}
 
-<<<<<<< HEAD
+
 
 
 
@@ -97,19 +107,8 @@ class BankingApiApplicationTests {
 
 
 
-=======
-	@Autowired
-	private SubscriptionRepository subscriptionRepository;
-
-	@Autowired
-	private AccountHolderRepository accountHolderRepository;
-
-	@Autowired
-	private AccountRepository accountRepository;
-
-	@Autowired
-	private PaymentRepository paymentRepository;
-
+	// tests for subscription
+	
 	@Test
 	public void testFindByCategory() {
 		assertThat(subscriptionRepository.findByCategory(Category.BILLS)).isNotNull();
@@ -130,5 +129,5 @@ class BankingApiApplicationTests {
 	public void testFindByDateOfPaymentEquals(){
 		assertThat(subscriptionRepository.findByDateOfPaymentEquals(LocalDate.of(2016,12,14)).size()).isEqualTo(1);
 	}
->>>>>>> 11c3057e4664165678d7fef2d580a1d4f221f3aa
+
 }
