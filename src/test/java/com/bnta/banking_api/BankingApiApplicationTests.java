@@ -1,21 +1,21 @@
 package com.bnta.banking_api;
 
-<<<<<<< HEAD
+
 import com.bnta.banking_api.models.Account;
 import com.bnta.banking_api.models.AccountHolder;
 import com.bnta.banking_api.repositories.AccountHolderRepository;
 import org.assertj.core.api.AssertionsForClassTypes;
-=======
+
 
 import com.bnta.banking_api.models.Category;
 import com.bnta.banking_api.models.Payment;
 import com.bnta.banking_api.repositories.PaymentRepository;
->>>>>>> 8c24c2d00ff2948730d94cb04d9519e22f428f17
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-<<<<<<< HEAD
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,16 +64,7 @@ class BankingApiApplicationTests {
 
 	@Autowired
 	private PaymentRepository paymentRepository;
->>>>>>> 8c24c2d00ff2948730d94cb04d9519e22f428f17
-=======
-	private SubscriptionRepository subscriptionRepository;
-	@Autowired
-	private AccountHolderRepository accountHolderRepository;
-	@Autowired
-	private AccountRepository accountRepository;
-	@Autowired
-	private PaymentRepository paymentRepository;
->>>>>>> 5ef8caff52c37a9f6ded0bb2f87f72058effbe3f
+
 
 
 	@Test
@@ -81,7 +72,8 @@ class BankingApiApplicationTests {
 	}
 	
 
-<<<<<<< HEAD
+	// tests for account holder
+
 	@Test
 	public void findAccountHolderByName(){
 		List<AccountHolder> found = this.accountHolderRepository.findAccountHolderByName("Kim Ye");
@@ -104,7 +96,7 @@ class BankingApiApplicationTests {
 	public void findAccountHolderByEmploymentStatus(){
 		List<AccountHolder> found = this.accountHolderRepository.findAccountHolderByName("Jess Blue");
 		AssertionsForClassTypes.assertThat(found.size()).isEqualTo(1);
-=======
+
 
 
 
@@ -183,7 +175,7 @@ class BankingApiApplicationTests {
 	@Test
 	public void testFindByDateOfPaymentEquals(){
 		assertThat(subscriptionRepository.findByDateOfPaymentEquals(LocalDate.of(2016,12,14)).size()).isEqualTo(1);
->>>>>>> 8c24c2d00ff2948730d94cb04d9519e22f428f17
+
 	}
 	
 	@Test
