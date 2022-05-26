@@ -12,6 +12,7 @@ import com.bnta.banking_api.repositories.PaymentRepository;
 import com.bnta.banking_api.repositories.SubscriptionRepository;
 
 
+import org.assertj.core.api.AssertionsForClassTypes;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -49,7 +50,7 @@ class BankingApiApplicationTests {
 	}
 	
 
-	// tests for account holder
+	// TODO : tests for account holder
 
 	@Test
 	public void findAccountHolderByName(){
@@ -70,15 +71,16 @@ class BankingApiApplicationTests {
 	}
 
 	@Test
-	public void findAccountHolderByEmploymentStatus(){
+	public void findAccountHolderByEmploymentStatus() {
 		List<AccountHolder> found = this.accountHolderRepository.findAccountHolderByName("Jess Blue");
 		AssertionsForClassTypes.assertThat(found.size()).isEqualTo(1);
+	}
 
 
 
 
 
-	// Tests for payments
+	// TODO : Tests for payments
 
 	@Test // find payment by piece of words
 	public void canFindPaymentsByNameIsContainingIgnoreCase(){
@@ -131,7 +133,7 @@ class BankingApiApplicationTests {
 
 
 
-	// tests for subscription
+	// TODO : tests for subscription
 	
 	@Test
 	public void testFindByCategory() {
@@ -154,28 +156,10 @@ class BankingApiApplicationTests {
 		assertThat(subscriptionRepository.findByDateOfPaymentEquals(LocalDate.of(2016,12,14)).size()).isEqualTo(1);
 
 	}
-	
-	@Test
-	public void testFindByCategory() {
-		assertThat(subscriptionRepository.findByCategory(Category.BILLS)).isNotNull();
-		assertThat(subscriptionRepository.findByCategory(Category.BILLS).size()).isEqualTo(4);
-	}
-	@Test
-	public void testFindByPriceGreaterThan() {
-		assertThat(subscriptionRepository.findByPriceGreaterThan(100).size()).isEqualTo(1);
-	}
-	@Test
-	public void testFindByIsActiveEquals(){
-		assertThat(subscriptionRepository.findByIsActiveEquals(true).size()).isEqualTo(12);
-	}
-	@Test
-	public void testFindByDateOfPaymentEquals(){
-		assertThat(subscriptionRepository.findByDateOfPaymentEquals(LocalDate.of(2016,12,14)).size()).isEqualTo(1);
-	}
-		
+
 	
 	
-	// tests for account
+	// TODO : tests for account
 
 	@Test
 	public void canFindAccountByBalanceGreaterThan100000(){
