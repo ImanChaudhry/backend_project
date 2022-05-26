@@ -8,7 +8,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 >>>>>>> 11c3057e4664165678d7fef2d580a1d4f221f3aa
 import java.util.List;
 import javax.persistence.*;
+<<<<<<< HEAD
+=======
 
+>>>>>>> 8c24c2d00ff2948730d94cb04d9519e22f428f17
 /*
 @Entity
 @Table(name = "joint_accounts")
@@ -57,7 +60,13 @@ public class JointAccount extends Account{
 }
 <<<<<<< HEAD
 
+
+ */
+=======
+<<<<<<< HEAD
+
  */
 =======
 */
 >>>>>>> 11c3057e4664165678d7fef2d580a1d4f221f3aa
+>>>>>>> 8c24c2d00ff2948730d94cb04d9519e22f428f17

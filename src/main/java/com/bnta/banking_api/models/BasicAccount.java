@@ -10,7 +10,10 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD
+=======
 
+>>>>>>> 8c24c2d00ff2948730d94cb04d9519e22f428f17
 /*
 @Entity(name="basic_accounts")
 //public class BasicAccount extends Account {
@@ -41,7 +44,13 @@ public class BasicAccount extends Account {
 }
 <<<<<<< HEAD
 
+
+ */
+=======
+<<<<<<< HEAD
+
  */
 =======
 */
 >>>>>>> 11c3057e4664165678d7fef2d580a1d4f221f3aa
+>>>>>>> 8c24c2d00ff2948730d94cb04d9519e22f428f17
