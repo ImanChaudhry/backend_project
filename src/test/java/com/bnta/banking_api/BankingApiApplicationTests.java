@@ -37,7 +37,6 @@ class BankingApiApplicationTests {
 	public void canFindJointAccountByRelationshipIsContainingIgnoreCase(){
 		List<Account> found = accountRepository.findJointAccountByRelationshipIsContainingIgnoreCase("housemate");
 		assertThat(found.size()).isEqualTo(3);
-
 	}
 
 }

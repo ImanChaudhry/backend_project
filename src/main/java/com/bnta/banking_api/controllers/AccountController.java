@@ -79,17 +79,11 @@ public class AccountController {
         return new ResponseEntity<>(accountRepository.findAccountByBalanceGreaterThan(balance), HttpStatus.OK);
     }
 
-//    SHOW
-//    @GetMapping("/{isdebit}")
-//    // localhost:8080/accounts/isdebit?isdebit=true
-//    public ResponseEntity<List<Account>> getAccountByIsDebit(
-//            @RequestParam(required = false, name = "isdebit") boolean isDebit){
-//        return new ResponseEntity<>(accountRepository.findAccountByIsDebit(isDebit), HttpStatus.OK);
-//    }
 
 
 //    CREATE/POST
-    @PostMapping//localhost:8080/accounts
+    @PostMapping
+    //localhost:8080/accounts
     //localhost:8080/accounts
     public ResponseEntity<Account> createAccount(@RequestBody Account newAccount) {
         accountRepository.save(newAccount);
@@ -133,23 +127,6 @@ public class AccountController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
