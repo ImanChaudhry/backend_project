@@ -13,7 +13,7 @@ This is a 1-week group project consisting of the Bright Network Technology Acade
 # Project Theme
 - We took inspiration from banking applications as banking is part of our day to day life in these recent years. Being able to pay online as well as having access to monthly reports of your spending allows for better money management towards customers.
 
-This API was coded in Java. We used the SpringBoot that implements the Spring Framework as well as Postman and H2 database to view the API.
+This API was coded in Java. We used the SpringBoot that implements the Spring Framework as well as Postman and H2 database to view the API request endpoints.
 
 
 
@@ -49,6 +49,12 @@ This API was coded in Java. We used the SpringBoot that implements the Spring Fr
 # Class Diagram
 <img width="1084" alt="Screenshot 2022-05-25 at 6 37 52 PM" src="https://user-images.githubusercontent.com/67974517/170511038-177da193-f644-4ee1-a118-1a95f727e2b9.png">
 
+
+# Dependencies
+- Spring Web
+- SpringBoot DevTools
+- Spring Data JPA
+- H2 Database
 
 
 # Our Commands
@@ -102,8 +108,9 @@ This API was coded in Java. We used the SpringBoot that implements the Spring Fr
 |localhost:8080/payments|
 |localhost:8080/subscriptions|
 
-## 3. PUT
+## 3. PUT  &  4. DELETE
 We need to insert 
 
-## 4. DELETE
+# Tests
+(INSERT SCREENSHOT OF TESTS)
 
