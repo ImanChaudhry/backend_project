@@ -31,8 +31,7 @@ This API was coded in Java. We used the SpringBoot that implements the Spring Fr
 
 ~ **Friday 27/05/2022** -- Presentation day
 
-(insert screenshot from slides of project timeline)
-
+<img width="1438" alt="Screenshot 2022-05-26 at 18 13 59" src="https://user-images.githubusercontent.com/67974517/170540384-fc797470-1c26-40e5-b7b1-564d113db011.png">
 
 
 # The API
@@ -108,7 +107,20 @@ This API was coded in Java. We used the SpringBoot that implements the Spring Fr
 |localhost:8080/payments|
 |localhost:8080/subscriptions|
 
-## 3. PUT  &  4. DELETE
+## 3. PUT  
+
+Example of updating an account by id:
+- localhost:8080/accounts/1
+
+    {
+        "balance": 445566.0,
+        "accountNumber": "98765432",
+        "expirationDate": "0442",
+        "cvc": "452",
+        "pinNumber": "9090"
+    }
+
+## 4. DELETE
 We need to insert 
 
 # Tests
