@@ -14,11 +14,17 @@ public interface AccountHolderRepository extends JpaRepository<AccountHolder, Lo
 
 //    List<AccountHolder> findById (Long id);
 
-    List<AccountHolder> findAccountHolderByNameIsContainingIgnoreCase(String name);
+//    List<AccountHolder> findAccountHolderByNameIsContainingIgnoreCase(String name);
+
+    List<AccountHolder> findByNameIsContainingIgnoreCase(String name);
+
 
     List<AccountHolder> findAccountHolderByDob(LocalDate dob);
 
-    List<AccountHolder> findAccountHolderByAddress(String address);
+//    List<AccountHolder> findAccountHolderByAddress(String address);
+
+    List<AccountHolder> findByAddressIsContainingIgnoreCase(String address);
+
 
     List<AccountHolder> findAccountHolderByEmploymentStatus(Employment employmentStatus);
 

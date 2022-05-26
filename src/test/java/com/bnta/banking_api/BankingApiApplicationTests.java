@@ -1,10 +1,7 @@
 package com.bnta.banking_api;
 
 
-import com.bnta.banking_api.models.Account;
-import com.bnta.banking_api.models.AccountHolder;
-import com.bnta.banking_api.models.Category;
-import com.bnta.banking_api.models.Payment;
+import com.bnta.banking_api.models.*;
 
 import com.bnta.banking_api.repositories.AccountRepository;
 import com.bnta.banking_api.repositories.AccountHolderRepository;
@@ -54,7 +51,7 @@ class BankingApiApplicationTests {
 
 	@Test
 	public void findAccountHolderByName(){
-		List<AccountHolder> found = this.accountHolderRepository.findAccountHolderByNameIsContainingIgnoreCase("Kim Ye");
+		List<AccountHolder> found = this.accountHolderRepository.findByNameIsContainingIgnoreCase("Kim Ye");
 		AssertionsForClassTypes.assertThat(found.size()).isEqualTo(1);
 	}
 
@@ -66,14 +63,15 @@ class BankingApiApplicationTests {
 
 	@Test
 	public void findAccountHolderByAddress(){
-		List<AccountHolder> found = this.accountHolderRepository.findAccountHolderByAddress("Boston Street, London");
+		List<AccountHolder> found = this.accountHolderRepository.findByAddressIsContainingIgnoreCase("Boston Street, London");
 		AssertionsForClassTypes.assertThat(found.size()).isEqualTo(1);
 	}
 
 	@Test
 	public void findAccountHolderByEmploymentStatus() {
-		List<AccountHolder> found = this.accountHolderRepository.findAccountHolderByNameIsContainingIgnoreCase("Jess Blue");
-		AssertionsForClassTypes.assertThat(found.size()).isEqualTo(1);
+		List<AccountHolder> found = this.accountHolderRepository.findAccountHolderByEmploymentStatus(Employment.STUDENT);
+		AssertionsForClassTypes.assertThat(found.size()).isEqualTo(4);
+
 	}
 
 

@@ -57,7 +57,7 @@ public class AccountHolderController {
 
     @GetMapping(value = "/name={name}")        // localhost:8080/account_holder/name
     public ResponseEntity<List<AccountHolder>> getAccountHolderByName(@PathVariable String name) {
-        List<AccountHolder> accountHolderByName = accountHolderRepository.findAccountHolderByNameIsContainingIgnoreCase(name);
+        List<AccountHolder> accountHolderByName = accountHolderRepository.findByNameIsContainingIgnoreCase(name);
         return new ResponseEntity<>(accountHolderByName, HttpStatus.OK);
     }
     @GetMapping(value = "/dob")        // localhost:8080/account_holder/dob?dob=1997-07-25
@@ -68,7 +68,7 @@ public class AccountHolderController {
 
     @GetMapping(value = "/address={address}")        // localhost:8080/account_holder/address
         public ResponseEntity<List<AccountHolder>> getAccountHolderByAddress(@PathVariable String address){
-            List<AccountHolder> accountHolderByAddress = accountHolderRepository.findAccountHolderByAddress(address);
+            List<AccountHolder> accountHolderByAddress = accountHolderRepository.findByAddressIsContainingIgnoreCase(address);
             return new ResponseEntity<>(accountHolderByAddress, HttpStatus.OK);
     }
 
