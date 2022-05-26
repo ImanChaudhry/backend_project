@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "payments")
-public class Payment {
+public class Payment <T> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,6 +32,7 @@ public class Payment {
     @JoinColumn(name = "account_id")
     @JsonIgnoreProperties(value = "payments")
     private Account account;
+
 
     public Payment(String name, LocalDate date, double amount, Account account, Category category) {
         this.name = name;
@@ -75,7 +76,15 @@ public class Payment {
         return account;
     }
 
-    public void setBasicAccount(Account account) {
+    public void setAccount(Account account) {
         this.account = account;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

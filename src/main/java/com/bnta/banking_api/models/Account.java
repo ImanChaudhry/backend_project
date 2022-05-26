@@ -50,8 +50,13 @@ public class Account {
 
 
     // new added
+<<<<<<< HEAD
     @Enumerated(EnumType.STRING)
     @Column
+=======
+    @Column
+    @Enumerated(EnumType.STRING)
+>>>>>>> 8c24c2d00ff2948730d94cb04d9519e22f428f17
     private AccountType accountType;
 
     @Column
@@ -213,6 +218,7 @@ public class Account {
         this.accountHolders = accountHolders;
     }
 
+<<<<<<< HEAD
     public void addAccountHolder(AccountHolder accountHolder){
         this.accountHolders.add(accountHolder);
     }
@@ -222,6 +228,13 @@ public class Account {
     }
 
 
+=======
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> 11c3057e4664165678d7fef2d580a1d4f221f3aa
+>>>>>>> 8c24c2d00ff2948730d94cb04d9519e22f428f17
     @Override
     public String toString() {
         return "Account{" +

@@ -29,7 +29,15 @@ public class AccountHolder {
     private Employment employmentStatus;
 
     @ManyToMany(mappedBy = "accountHolders")
+<<<<<<< HEAD
     @JsonIgnoreProperties("accountHolders")
+=======
+<<<<<<< HEAD
+    @JsonIgnoreProperties(value = "accountHolders")
+=======
+    @JsonIgnoreProperties("accountHolders")
+>>>>>>> 11c3057e4664165678d7fef2d580a1d4f221f3aa
+>>>>>>> 8c24c2d00ff2948730d94cb04d9519e22f428f17
     private List<Account> accounts;
 
 //    DEFAULT CONSTRUCTOR
