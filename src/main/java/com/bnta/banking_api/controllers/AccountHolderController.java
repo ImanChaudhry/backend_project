@@ -73,8 +73,10 @@ public class AccountHolderController {
     }
 
     @GetMapping(value = "/employment={employmentStatus}")        // localhost:8080/account_holder/employmentStatus
-        public ResponseEntity<List<AccountHolder>> getAccountHolderEmploymentStatus(@PathVariable Employment employmentStatus){
-            List<AccountHolder> found = accountHolderRepository.findAccountHolderByEmploymentStatus(employmentStatus);
+        public ResponseEntity<List<AccountHolder>> getAccountHolderEmploymentStatus(@PathVariable String employmentStatus){
+
+            List<AccountHolder> found = accountHolderRepository
+                    .findAccountHolderByEmploymentStatus(Employment.valueOf(employmentStatus.toUpperCase()));
             return new ResponseEntity<>(found, HttpStatus.OK);
     }
 
