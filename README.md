@@ -71,11 +71,11 @@ This API was coded in Java. We used the SpringBoot that implements the Spring Fr
 |**ACCOUNT HOLDERS**|
 |:----------- |
 |localhost:8080/account_holders|
-|localhost:8080/account_holders/1|
-|localhost:8080/account_holders/name|
+|localhost:8080/account_holders/id=10|
+|localhost:8080/account_holders/name=iman|
 |localhost:8080/account_holders/dob?dob=1997-07-25|
-|localhost:8080/account_holders/addres|
-|localhost:8080/account_holders/employmentStatus|
+|localhost:8080/account_holders/address=manchester|
+|localhost:8080/account_holders/employmentStatus| 
 
 |**PAYMENTS**|
 |:----------- |
