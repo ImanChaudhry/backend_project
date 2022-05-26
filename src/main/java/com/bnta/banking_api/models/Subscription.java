@@ -20,7 +20,7 @@ public class Subscription {
     private String name;
 
     @Column
-    private LocalDate date_of_payment;
+    private LocalDate dateOfPayment;
 
     @Column
     @Enumerated(EnumType.STRING)
@@ -30,28 +30,35 @@ public class Subscription {
     private double price;
 
     @Column
-    private Boolean is_active;
+    private Boolean isActive;
 
     @ManyToOne
     @JoinColumn(name = "account_id")
+<<<<<<< HEAD
     @JsonIgnoreProperties("subscriptions")
+=======
+<<<<<<< HEAD
+    @JsonIgnoreProperties(value = "subscriptions")
+=======
+    @JsonIgnoreProperties("subscriptions")
+>>>>>>> 11c3057e4664165678d7fef2d580a1d4f221f3aa
+>>>>>>> 9ac571282553c5d3289bac4da070765ae5d32d3d
     private Account account;
 //    @JsonIgnoreProperties({""})
 
 
 // Empty/Default Constructor
 
-    protected Subscription() {
-    }
+    protected Subscription() {}
 
 // Constructors
 
-    public Subscription(String name, LocalDate date_of_payment, Category category, double price, Boolean is_active, Account account) {
+    public Subscription(String name, LocalDate dateOfPayment, Category category, double price, Boolean isActive, Account account) {
         this.name = name;
-        this.date_of_payment = date_of_payment;
+        this.dateOfPayment = dateOfPayment;
         this.category = category;
         this.price = price;
-        this.is_active = is_active;
+        this.isActive = isActive;
         this.account = account;
     }
 
@@ -72,11 +79,11 @@ public class Subscription {
     }
 
     public LocalDate getDate_of_payment() {
-        return date_of_payment;
+        return dateOfPayment;
     }
 
-    public void setDate_of_payment(LocalDate date_of_payment) {
-        this.date_of_payment = date_of_payment;
+    public void setDate_of_payment(LocalDate dateOfPayment) {
+        this.dateOfPayment = dateOfPayment;
     }
 
     public Category getCategory() {
@@ -96,11 +103,11 @@ public class Subscription {
     }
 
     public Boolean getIs_active() {
-        return is_active;
+        return isActive;
     }
 
-    public void setIs_active(Boolean is_active) {
-        this.is_active = is_active;
+    public void setIs_active(Boolean isActive) {
+        this.isActive = isActive;
     }
 
     public Account getAccount() {

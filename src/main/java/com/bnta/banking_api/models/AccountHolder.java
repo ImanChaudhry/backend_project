@@ -26,22 +26,34 @@ public class AccountHolder {
 
     @Column
     @Enumerated(EnumType.STRING)
-    private Employment employment_status;
+    private Employment employmentStatus;
 
     @ManyToMany(mappedBy = "accountHolders")
+<<<<<<< HEAD
     @JsonIgnoreProperties("accountHolders")
+=======
+<<<<<<< HEAD
+    @JsonIgnoreProperties("accountHolders")
+=======
+<<<<<<< HEAD
+    @JsonIgnoreProperties(value = "accountHolders")
+=======
+    @JsonIgnoreProperties("accountHolders")
+>>>>>>> 11c3057e4664165678d7fef2d580a1d4f221f3aa
+>>>>>>> 8c24c2d00ff2948730d94cb04d9519e22f428f17
+>>>>>>> 9ac571282553c5d3289bac4da070765ae5d32d3d
     private List<Account> accounts;
 
 //    DEFAULT CONSTRUCTOR
     protected AccountHolder(){}
 
 //    CONSTRUCTOR
-    public AccountHolder(String name, LocalDate dob, String address, Employment employment_status) {
+    public AccountHolder(String name, LocalDate dob, String address, Employment employmentStatus) {
         this.name = name;
         this.dob = dob;
         this.address = address;
-        this.employment_status = employment_status;
-        this.accounts = new ArrayList<>();
+        this.employmentStatus = employmentStatus;
+        this.accounts = new ArrayList<Account>();
     }
 
     public Long getId() {
@@ -72,12 +84,12 @@ public class AccountHolder {
         this.address = address;
     }
 
-    public Employment getEmployment_status() {
-        return employment_status;
+    public Employment getEmploymentStatus() {
+        return employmentStatus;
     }
 
-    public void setEmployment_status(Employment employment_status) {
-        this.employment_status = employment_status;
+    public void setEmploymentStatus(Employment employmentStatus) {
+        this.employmentStatus = employmentStatus;
     }
 
     public List<Account> getAccounts() {

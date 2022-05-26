@@ -1,7 +1,13 @@
 package com.bnta.banking_api.components;
+<<<<<<< HEAD
 import com.bnta.banking_api.models.*;
 //import com.bnta.banking_api.models.BasicAccount;
 //import com.bnta.banking_api.models.JointAccount;
+=======
+
+
+import com.bnta.banking_api.models.*;
+>>>>>>> 9ac571282553c5d3289bac4da070765ae5d32d3d
 import com.bnta.banking_api.repositories.AccountRepository;
 import com.bnta.banking_api.repositories.PaymentRepository;
 import com.bnta.banking_api.models.Payment;
@@ -10,16 +16,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
+<<<<<<< HEAD
+=======
+import org.springframework.web.bind.annotation.RestController;
+
+
+import javax.annotation.Resource;
+>>>>>>> 9ac571282553c5d3289bac4da070765ae5d32d3d
 import java.time.LocalDate;
 import java.util.Arrays;
 @Component
 public class DataLoader implements ApplicationRunner {
     @Autowired
     private AccountHolderRepository accountHolderRepository;
+<<<<<<< HEAD
     //    @Autowired
 //    private BasicAccountRepository basicAccountRepository;
 //    @Autowired
 //    private JointAccountRepository jointAccountRepository;
+=======
+//    @Autowired
+//    private BasicAccountRepository basicAccountRepository;
+//    @Autowired
+//    private JointAccountRepository jointAccountRepository;
+
+>>>>>>> 9ac571282553c5d3289bac4da070765ae5d32d3d
     // new
     @Autowired
     private AccountRepository accountRepository;
@@ -30,6 +51,11 @@ public class DataLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 9ac571282553c5d3289bac4da070765ae5d32d3d
         // AccountHolder data
         AccountHolder accountHolder1 = new AccountHolder("Aisha Mohamed", LocalDate.of(2000, 2, 23), "Abc Street, London", Employment.FULL_TIME);
         AccountHolder accountHolder2 = new AccountHolder("Mohamed Khaled", LocalDate.of(1995, 5, 15), "Sunny Street, London", Employment.FULL_TIME);
@@ -54,6 +80,11 @@ public class DataLoader implements ApplicationRunner {
         accountHolderRepository.saveAll(Arrays.asList(accountHolder1, accountHolder2, accountHolder3, accountHolder4, accountHolder5, accountHolder6, accountHolder7, accountHolder8, accountHolder9,
                 accountHolder10, accountHolder11, accountHolder12, accountHolder13, accountHolder14, accountHolder15, accountHolder16, accountHolder17,
                 accountHolder18, accountHolder19, accountHolder20));
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 9ac571282553c5d3289bac4da070765ae5d32d3d
         /*
         //BasicAccount Data
         BasicAccount basicAccount1 = new BasicAccount(true, 95847,"1548",accountHolder1);
@@ -79,7 +110,13 @@ public class DataLoader implements ApplicationRunner {
         JointAccount jointAccount9 = new JointAccount(false, -754,"3619", "Partner", Arrays.asList(accountHolder4, accountHolder3));
         JointAccount jointAccount10 = new JointAccount(false, -794,"7892", "Parent", Arrays.asList(accountHolder14, accountHolder16));
         jointAccountRepository.saveAll(Arrays.asList(jointAccount1,jointAccount2,jointAccount3,jointAccount4,jointAccount5,jointAccount6,jointAccount7,jointAccount8,jointAccount9,jointAccount10));
+<<<<<<< HEAD
         */
+=======
+
+        */
+
+>>>>>>> 9ac571282553c5d3289bac4da070765ae5d32d3d
         // new
         // account data
         Account account1 = new Account(true, 12469,"1649", AccountType.JOINT_ACCOUNT,"Partner", Arrays.asList(accountHolder1, accountHolder2));
@@ -92,6 +129,10 @@ public class DataLoader implements ApplicationRunner {
         Account account8 = new Account(true, 58612,"0467", AccountType.JOINT_ACCOUNT, "Housemate", Arrays.asList(accountHolder14, accountHolder20));
         Account account9 = new Account(false, -75,"0610", AccountType.JOINT_ACCOUNT, "Housemate", Arrays.asList(accountHolder4, accountHolder3));
         Account account10 = new Account(false, -894,"0892", AccountType.JOINT_ACCOUNT, "Parent", Arrays.asList(accountHolder14, accountHolder16));
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9ac571282553c5d3289bac4da070765ae5d32d3d
         Account account11 = new Account(true, 124569,"1649", AccountType.BASIC_ACCOUNT,"N/A", Arrays.asList(accountHolder2));
         Account account12 = new Account(true,352648 ,"9878", AccountType.BASIC_ACCOUNT, "N/A", Arrays.asList(accountHolder3));
         Account account13 = new Account(false, -574,"7898", AccountType.BASIC_ACCOUNT, "N/A", Arrays.asList(accountHolder10));
@@ -104,6 +145,10 @@ public class DataLoader implements ApplicationRunner {
         Account account20 = new Account(false, -794,"7892", AccountType.BASIC_ACCOUNT, "N/A", Arrays.asList(accountHolder14));
         accountRepository.saveAll(Arrays.asList(account1, account2, account3, account4, account5, account6, account7, account8, account9, account10,
                 account11, account12, account13, account14, account15, account16, account17, account18, account19, account20));
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9ac571282553c5d3289bac4da070765ae5d32d3d
         // Payment data
         Payment payment1 = new Payment("Amazon", LocalDate.of(2022, 1,2), 9.99, account1,Category.SHOPPING);
         Payment payment2 = new Payment("Gym", LocalDate.of(2022, 3, 29), 31.99,account2,Category.HEALTH);
@@ -128,6 +173,11 @@ public class DataLoader implements ApplicationRunner {
         paymentRepository.saveAll(Arrays.asList(payment1, payment2, payment3, payment4, payment5, payment6, payment7,
                 payment8, payment9, payment10, payment11, payment12, payment13, payment14, payment15,
                 payment16, payment17, payment18, payment19, payment20));
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 9ac571282553c5d3289bac4da070765ae5d32d3d
         // Subscription data
         Subscription sub1 = new Subscription("Nandos", LocalDate.of(2016, 12, 14), Category.EATING_OUT, 54.99, true, account1);
         Subscription sub2 = new Subscription("Thames Water", LocalDate.of(2020, 9, 12), Category.BILLS, 69.99, true, account3);
