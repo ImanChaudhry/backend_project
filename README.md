@@ -82,10 +82,10 @@ This API was coded in Java. We used the SpringBoot that implements the Spring Fr
 |localhost:8080/payments|
 |localhost:8080/payments/1|
 |localhost:8080/payments/search?from=2022-01-01&to=2022-03-01|
-|INSERT SEARCH CATEGORY|
-|INSERT SEARCH GREATER THAN AMOUNT|
-|INSERT SEARCH ACCOUNT ID|
-|INSERT SEARCH ACCOUNT_HOLDER BY NAME|
+|localhost:8080/payments/search/category=shopping|
+|localhost:8080/payments/search/greaterthan=50|
+|localhost:8080/payments/search/account=5|
+|localhost:8080/payments/search/account_holder=john|
 
 
 |**SUBSCRIPTIONS**|
@@ -119,9 +119,21 @@ Example of updating an account by id:
             "cvc": "452",
             "pinNumber": "9090"
         }
+        
+ 
+Example of updating an payment by id:
+- localhost:8080/payments/1
+- pass in a text with "Entertainment"
 
 ## 4. DELETE
 We need to insert 
+
+|**PAYMENTS**|
+|:----------- |
+|delete by id | localhost:8080/payments/delete-1|
+|delete by a date |localhost:8080/payments/delete?date=2022-02-01|
+|delete by payment name|localhost:8080/payments/delete?name=tesco|
+
 
 # Tests
 
