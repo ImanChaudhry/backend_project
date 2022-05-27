@@ -128,8 +128,8 @@ Example of updating an payment by id:
 ## 4. DELETE
 We need to insert 
 
-|**PAYMENTS**|
-|:----------- |
+|**PAYMENTS**| |
+|-----------|-----------|
 |delete by id | localhost:8080/payments/delete-1|
 |delete by a date |localhost:8080/payments/delete?date=2022-02-01|
 |delete by payment name|localhost:8080/payments/delete?name=tesco|
